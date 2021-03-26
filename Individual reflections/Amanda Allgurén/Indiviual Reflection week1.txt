@@ -1,2 +1,7 @@
-﻿What do I want to learn or understand better?
-Då detta är den första veckan så vill jag lära...
+The learning objective I have chosen for this course is to understand and be able to use Scrum in the development of a new product. This is a concept I have only heard of briefly but have not understood how or why it is used. 
+
+Since I am not very familiar with the term Scrum, I am today unsure how I can contribute to the team within this area. What I know is that I am very eager to learn and work together with the team to get a better understanding about the task itself and the process we are using while developing using scrum. 
+
+I contributed with options and suggestions writing the social contract this week. Further on, I think I can contribute with my programming skills and by making sure that we have great documentation from each sprint, making it easier to track. I have started to look at creating a digital version of a wall-based scrum board we might use for each sprint but have not yet discussed it with the team.
+
+By attending all the lectures, having discussions within the team and do readings of what I feel like having lacking knowledge in, I think I can reach my learning objective.
