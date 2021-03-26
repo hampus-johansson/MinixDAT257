@@ -1,2 +1,15 @@
-﻿What do I want to learn or understand better?
-Då detta är den första veckan så vill jag lära...
+• What do I want to learn or understand better? 
+
+I primarily want to fully understand the core features that our project should contain, as well as the overall scope of our project, things that will be clearer during next week. Scrum is also something that I will be more experienced with over the course of next week, where we can efficiently understand and plan the various sprint processes. 
+
+• How can I help someone else, or the entire team, to learn something new? 
+
+This early in the project there isn’t too much to teach or learn considering we have not fully started working on our project. As we get further, understanding the importance and benefits of the Scrum framework would be beneficial if any team member gets confused with a particular stage, even if that situation would seem unlikely. Lastly, simply communicating and helping out in various stages of the process will always help when it comes to learning new things, considering the various levels of experience inside the group. 
+
+• What is my contribution towards the team’s use of Scrum? 
+
+We have not properly started using Scrum and will have our first Scrum Exercise early next week. As for next week, I want my contribution to be that I fully understand the framework and can contribute to making a plan that works for everybody in the group and benefits us. 
+
+• What is my contribution towards the team’s deliveries? 
+
+My contribution was helping to formulate and communicate a Social Contract with the group.
