@@ -1,2 +1,13 @@
 ﻿What do I want to learn or understand better?
-Då detta är den första veckan så vill jag lära...
+Generellt i denna kurs så vill utveckla min förmåga att arbeta utifrån Scrum ramverket under denna kurs. Jag vill även lära mig att arbeta i ett projekt för en extern intressent, vilket är något som är nytt för mig. 
+Just nu så är vi i ett väldigt tidigt stadie, men i nuläget ser det ut som om vi kommer arbeta med två stycken olika API:er, dessa vill jag de kommande veckorna lära mig mer om.
+
+How can I help someone else, or the entire team, to learn something new?
+Vi som går IT verkar vara mer bekväma med att sätta upp repo och arbeta med versionshanterad kod, detta är något jag kan hjälpa till med att lära min grupp. Annars så hjälper jag min projektgrupp så gott jag kan genom att inkludera alla och göra mitt bästa med att få projektarbetet att gå framåt.
+ 
+
+What is my contribution towards the team’s use of Scrum?
+Eftersom detta endast är vår första vecka så har vi inte arbetat så mycket med Scrum. Men istället har jag fokuserat på att lära mig mer om Scrum arbetssättet genom föreläsningar, googlande och diskuterande med de andra gruppmedlemmarna. Vi har kommit fram till att en sprint är 1 vecka, från Måndag till nästa Måndag.
+
+What is my contribution towards the team’s deliveries? 
+Denna vecka har vi skapat ett socialt kontrakt som vi ska följa under projektets gång. Där har jag hjälpt till med att diskutera fram bland annat: hur vi ska programmera, hur vi ska kommunicera, vilka KPI:er vi ska använda oss utav och hur vi ska fördela arbetet. Jag har även hjälpt till med att förbereda repot för att man ska kunna ladda upp sina individuella reflektioner också.
