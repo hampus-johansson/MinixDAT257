@@ -1,2 +1,17 @@
-﻿What do I want to learn or understand better?
-Då detta är den första veckan så vill jag lära...
+
+
+What do I want to learn or understand better?
+-	Jag vill lära mig hur man lägger upp ett sånt här slags projekt, lära mig mer om scrum. 
+
+How can I help someone else, or the entire team, to learn something new?
+-	Just nu kan vi från industriell ekonomi dela med oss av kunskap och erfarenhet från tidigare it-kurser till de gruppmedlemmar från IT. Annars kan jag bara erbjuda min hjälp och försöka hjälpa till så gott det går. 
+
+What is my contribution towards the team’s use of Scrum?
+-	Jag kollar på föreläsningarna, läser alla slides, och försöker lära mig så mycket som möjligt. 
+
+What is my contribution towards the team’s deliveries?
+-	Jag deltog i sammanställningen av Social Contract och var med i diskussionerna om vilken intressant vi skulle rikta oss mot. 
+-	Har även deltagit på föreläsningar och försöker lära mig fakta om Scrum och andra viktiga koncept. 
+
+Learning Objective: 
+Jag vill försöka lära mig alla viktiga koncept i kursen genom att aktivit lyssna på föreläsningarna. Jag vill också arbeta bra tillsammans med gruppen och skapa en bra gruppgemenskap där alla känner att de bidrar, detta genom en öppen diskussion och bra strukturerat arbetssätt. Jag vill också lära mig mer om scrum, dels genom föreläsningar, egna erfarenheter samt läsa på ytterligare om det behövs. 
