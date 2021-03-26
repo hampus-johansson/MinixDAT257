@@ -1,2 +1,11 @@
-﻿What do I want to learn or understand better?
-Då detta är den första veckan så vill jag lära...
+ What do I want to learn or understand better?
+Considering this is the first week of the course, there are many things I want to learn about and understand better. I want to gain more knowledge about the Scrum process since I’ve never worked with it before, and I hope to get better at coding as the project goes along. 
+ 
+How can I help someone else, or the entire team, to learn something new?
+When I have done my research about e.g. Scrum I can recommend others to read the same articles or watch the same videos. I think we will help each other a lot since we all have different skills in different areas. Programming in pairs is a good way to learn coding from each other. If I have more knowledge in a certain area I will, of course, help the other person learn more about it and vice versa. 
+ 
+What is my contribution towards the team’s use of Scrum?
+I intend to gain more knowledge about it, both from lectures and by doing some research on my own, in order to be able to contribute to ideas. So far, we have made a plan together regarding sprints and KPIs, so there haven’t been many opportunities to contribute so much individually yet. 
+ 
+What is my contribution towards the team’s deliveries?
+What we have delivered so far is a Social Contract and thereby an overall plan regarding our project and the Scrum process. I was part of making the contract as much as the others; it was a joint effort. 
