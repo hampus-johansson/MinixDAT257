@@ -1,3 +1,12 @@
-﻿What do I want to learn or understand better?
-Då detta är den första veckan så vill jag lära...
-test ändring
+- what do I want to learn or understand better?
+Just nu är mitt fokus på att lära mig scrum. Hur det fungerar i praktiken och teorin samt hur vi kan tillämpa scrum för att underlätta i vårt projekt. Därefter måste jag öka min kunskap om apier generellt, samt att lära mig hur Lime Go och Clockify apierna fungerar.
+
+- how can I help someone else, or the entire team, to learn something new?
+Förhoppningsvis kommer jag kunna dela med mig av min kunskap kring apier och scrum. Beroende på vår grupps erfarenhet kring github så kan det även vara något jag kan hjälpa till med att förbättra.
+
+- what is my contribution towards the team’s use of Scrum?
+Hittills har vi inte börjat med scrum än, men just nu försöker jag lära mig hur det fungerar så att jag kan vara med och delta när vi startar med scrum.
+
+- what is my contribution towards the team’s deliveries?
+Jag deltog i skrivandet av det sociala kontraktet där vi lagt upp en plan för när och hur vi kommer jobba. Här gick vi även igenom hur vi ska reflektera över vårt jobb så att vi kan utvecklas vidare. Jag har även varit med i skapandet av gruppens github repository som är vårt sätt att versionshantera och strukturera upp vårt arbete.
+	
