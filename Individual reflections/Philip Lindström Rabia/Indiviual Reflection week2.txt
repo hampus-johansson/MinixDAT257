@@ -1,0 +1,13 @@
+- what do I want to learn or understand better?
+Jag vill fortsätta lära mig om scrum men nu kommer jag fokusera mer på apierna då jag förra veckan hade huvudfokus på scrum. Inom scrum ska jag lära mig mer om user stories och definition av done. Förra veckan lärde jag mig hur clockify fungerar och nu tänkar jag fokusera på lime go.
+
+
+- how can I help someone else, or the entire team, to learn something new?
+Näst nästa vecka kommer vi börja med programmering och då kan det vara bra att dela med mig av kunskapen kring apier och framförallt våra apier so mvi ska använda. 
+
+- what is my contribution towards the team’s use of Scrum?
+Vi har fortfarande inte börjat med scrum men under veckan har vi haft två övningar i hur man tillämpar scrum i praktiken. Här har vi tillsamamans jobbat med scrum och lärt oss mer om dess metodik. Tanken är att när vi sedan börjar jobba med scrum i vårt projekt så kan jag vara med och ge något mer värde
+
+- what is my contribution towards the team’s deliveries?
+Jag deltog i skrivandet av projekt scopen. Här var jag med och skrev deksriptionen av projektet, business model canvas och vår mockup. Jag var även med på mötet med vår externa intressent.
+	
