@@ -1,0 +1,17 @@
+﻿Individual Reflection, Week 2
+
+•	What do I want to learn or understand better?
+
+I want to be more experienced with various github features and learn how to properly use it during development. Learning how to use APIs and how to use it for databases is also a vital thing I want to learn and understand ahead of when the project really starts.
+
+•	How can I help someone else, or the entire team, to learn something new?
+
+Since I have hopefully learned some more about Github and our two APIs during the coming week, I hope to be able to help if questions arise when we start fully working on the base of our project which will mostly consist of creating a database and connecting APIs.
+
+•	What is my contribution towards the team’s use of Scrum?
+
+Other than learning the various parts of scrum and having a couple of exercises, we have not fully started to incorporate it into our project and into our group. By the coming weeks, I will hopefully have more things to talk about regarding Scrum and the various sprint processes.
+
+•	What is my contribution towards the team’s deliveries?
+
+Giving input and helping with writing the project scope deliverable.
