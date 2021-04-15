@@ -1,0 +1,18 @@
+﻿Individual Reflection Week 4 – Oscar Wallin
+
+•	what do I want to learn or understand better?
+
+My main goal this upcoming sprint is to primarily learn the Clockify API system and how to correctly extract the information we need for our database. Furthering on this, I also want to learn how to properly get the information, which is in JSON format, to our database as smoothly as possible.
+
+•	how can I help someone else, or the entire team, to learn something new?
+
+If I succeed in my goal of being knowledgeable enough with the Clockify API, I can hopefully if any questions rise up regarding this part of our project, as well as maybe helping along when it comes to any JSON part of our sprint.
+
+•	what is my contribution towards the team’s use of Scrum?
+
+Since I am not going to be scrum master this week, my main focus would be to properly communicate with the scrum masters and follow the guidelines set in our social contract in regards to how we present changes in our repository and branches. As for this week, mine and the teams contribution consisted of setting up how we specifically want to construct our use of Scrum.
+
+•	what is my contribution towards the team’s deliveries?
+
+This week I was present when changing up various things in our social contract and writing up our team reflection, as well as minor issues in our github repo.
+
