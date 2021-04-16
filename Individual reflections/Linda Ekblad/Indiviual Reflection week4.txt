@@ -1,1 +1,17 @@
-Individuell reflection. Week 4 What do I want to learn or understand better?-	Lära mig mer om hur man hämtar in API i en databas, ännu mer kring scrumprocessen, speciellt med tanke på poängsättningen.  How can I help someone else, or the entire team, to learn something new?-	Vara delaktig i alla diskussioner och komma med mina idéer. Dela med mig av den kunskapen jag har i våra möten.  What is my contribution towards the team’s use of Scrum?-	Jag kollar aktivt på föreläsningarna, läser noga igenom alla slides samt googlar när det är något jag inte förstår.What is my contribution towards the team’s deliveries?-	Delta aktivit i mötena med gruppen. Är med och strukturerar upp allt arbete. -	Vi har denna vecka skapat user stories, delat upp i tasks, reviewat veckans sprint samt planerat inför kommande sprint. Vi alla har även läst på och tillsammans gått igenom hur github fungerar med tanke på push, pull osv.  Learning Objective: Jag vill försöka lära mig alla viktiga koncept i kursen genom att aktivit lyssna på föreläsningarna. Jag vill också arbeta bra tillsammans med gruppen och skapa en bra gruppgemenskap där alla känner att de bidrar, detta genom en öppen diskussion och bra strukturerat arbetssätt. Jag vill också lära mig mer om scrum, dels genom föreläsningar, egna erfarenheter samt läsa på ytterligare om det behövs. 
+Individuell reflection. Week 4 
+
+What do I want to learn or understand better?
+-	L√§ra mig mer om hur man h√§mtar in API i en databas, √§nnu mer kring scrumprocessen, speciellt med tanke p√• po√§ngs√§ttningen.  
+
+How can I help someone else, or the entire team, to learn something new?
+-	Vara delaktig i alla diskussioner och komma med mina id√©er. Dela med mig av den kunskapen jag har i v√•ra m√∂ten.  
+
+What is my contribution towards the team‚Äôs use of Scrum?
+-	Jag kollar aktivt p√• f√∂rel√§sningarna, l√§ser noga igenom alla slides samt googlar n√§r det √§r n√•got jag inte f√∂rst√•r.
+
+What is my contribution towards the team‚Äôs deliveries?
+-	Delta aktivit i m√∂tena med gruppen. √Ñr med och strukturerar upp allt arbete. 
+-	Vi har denna vecka skapat user stories, delat upp i tasks, reviewat veckans sprint samt planerat inf√∂r kommande sprint. Vi alla har √§ven l√§st p√• och tillsammans g√•tt igenom hur github fungerar med tanke p√• push, pull osv.  
+
+Learning Objective: Jag vill f√∂rs√∂ka l√§ra mig alla viktiga koncept i kursen genom att aktivit lyssna p√• f√∂rel√§sningarna. Jag vill ocks√• arbeta bra tillsammans med gruppen och skapa en bra gruppgemenskap d√§r alla k√§nner att de bidrar, detta genom en √∂ppen diskussion och bra strukturerat arbetss√§tt. Jag vill ocks√• l√§ra mig mer om scrum, dels genom f√∂rel√§sningar, egna erfarenheter samt l√§sa p√• ytterligare om det beh√∂vs. 
+
