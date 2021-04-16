@@ -1,0 +1,11 @@
+﻿What do I want to learn or understand better?
+Just nu vill jag fokusera på att bli bättre på att skapa en bra struktur och ett bra ER-diagram över vår databas, eftersom det är det som är planerat att jag ska göra nästa sprint. Jag vill även fortsätta lära mig att arbeta på ett agilt arbetssätt.
+
+How can I help someone else, or the entire team, to learn something new?
+Genom diskussioner inom vår grupp så kan jag bidra med min tidigare kunskap, bland annat genom hur man använder sig utav Github Desktop. 
+
+What is my contribution towards the team’s use of Scrum?
+Jag har bidragit till diskussioner när vi bestämt nya saker inför användandet av Scrum och sedan har jag följt denna sprint utifrån vad vi har bestämt. 
+
+What is my contribution towards the team’s deliveries? 
+Denna vecka har vi endast suttit upp vårt repo så att utvecklingsmiljön är redo inför nästa sprint. Jag har även varit med och skrivit denna veckas team reflection och finslipat på vårt sociala kontrakt.
