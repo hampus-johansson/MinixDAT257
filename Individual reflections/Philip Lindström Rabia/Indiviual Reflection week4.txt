@@ -1,0 +1,12 @@
+- what do I want to learn or understand better?
+Nästa vecka har jag i task att skapa ett sql exempel där vi hämtar data från clockify. Därför är mitt nuvarande mål att lära mig hur man kan åstadkomma detta. Jag skulle säga att jag har helt okej koll på clockify api:n oc hatt det svåra kommer vara att fixa det i sql vilket jag inte vet hur man gör än.
+
+- how can I help someone else, or the entire team, to learn something new?
+Jag tänker kolla lite youtube videos och läsa på internetet kring hur man kan använda api:er i sql därefter kan man alltid sprida vidare den kunskapen til resten av teamet.
+
+- what is my contribution towards the team’s use of Scrum?
+Jag har varit med och bestämt vilka user stories som vi ska ha och vilka tasks. Här deltog jag även i planning pokern där vi gemensamt tog reda på poängen varje task för nästa sprint bör ta.
+
+- what is my contribution towards the team’s deliveries?
+Denna vecka lämnade vi in första teamreflektionen. Teamreflektionen gjorde vi tillsammans i grupp och diskuterade kring frågorna. 
+	
