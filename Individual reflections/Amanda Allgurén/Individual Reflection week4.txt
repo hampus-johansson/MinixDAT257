@@ -1,0 +1,16 @@
+I want to understand how the sprint planning session should be done in the most effective way - point estimating using poker planning and how this should be done in pair programming.
+I also want to understand how APIs works and how to fetch that data using SQL.
+
+By introducing the concept of poker planning this week, the whole team was able to contribute with their thoughts on how this should be done and documented. 
+Since we have now split the scrum master responsibility for a new person every week, to make everyone try it and get a better understanding what is expected, myself and Erika are assigned for this upcoming sprint. 
+We had to split the responsibiliy for scrum master one week to cover all the weeks in the course, and since no one in the group is very familiar with the concept of scrum we choose to have two scrum masters the first week to grasp the concept sooner.
+We are by doing readings when new concepts are found about how to perform them, for example read about poker planning when we had to estimate the points for different tasks for the first time.
+We have also been doing user stories and splitting them up into tasks.
+
+
+By assigning all tasks for the sprint to different pairs (one pair had to be three people), every team member got a chance to choose what they wanted to work on and learn more about.
+Since I have been interested in learning more about API's even before this course started, I assigned myself to a task covering that.
+Me and Hampus is working on fetching data from Lime Go's API. We are working together, sharing screen and programming from one computer while doing research on both computers when bumping it to a problem to be time efficient. 
+We are also doing researching and looking at code from other's API fetches on github for inspiration and a better understanding what is needed.
+
+
