@@ -1,10 +1,5 @@
 --Tables
 
-CREATE TABLE HelloWorld (
-	name Text NOT NULL PRIMARY KEY,
-	abbr Text NOT NULL
-);
-
 CREATE TABLE Users(
 	email TEXT,
 	uname TEXT NOT NULL,
@@ -16,7 +11,7 @@ CREATE TABLE ClockifyUser(
 	workedHours REAL NOT NULL,
 	PRIMARY KEY (email), 
 	FOREIGN KEY (email) REFERENCES Users (email)
-	);
+);
 	
 CREATE TABLE LimeGoUser(
 	email TEXT,
