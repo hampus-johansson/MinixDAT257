@@ -7,23 +7,18 @@ assignees: ''
 
 ---
 
-**User Story**
-As a user I want to be able to do X.
+User Story: 
 
-**Requirements**
-Add a button on screen X upon segueing from Y.
+Acceptanskriterier: 
+- [ ] Kriterie 1
+- [ ] Kriterie 2
 
-**System Leve Tasks:**
+Checklista för Definition of Done
+- [ ] Alla acceptanskriterier är uppfyllda för User Storyn
+- [ ] En utvecklare som ej arbetat med User Storyn har reviewat koden/uppgiften
+- [ ] Alla co-authors till User Storyn har angetts i committen
+- [ ] All tid som lagts på User Storyn ska vara loggad i Clockify
+- [ ] User Storyn ska vara mergad med develop bransch
+- [ ] Reflekterat över User Storyn för att förbättra till nästa gång
 
-- [ ] Set up **database** to have have column x on table y.
-
-- [ ] Develop Module A on the **backend** for data mutation and handling for object B.
-
-- [ ] Develop new interface to relay data on **UI**.
-
-**Time Estimate:**
-xh
-
-**Notes**: 
-
-- Discuss with clients what color the button should be.
+Reflektion:  Fyll i en kort reflektion här
