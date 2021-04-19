@@ -40,7 +40,7 @@ DECLARE @ret INT;
 DECLARE @url NVARCHAR(MAX);
 DECLARE @authHeader NVARCHAR(64);
 DECLARE @contentType NVARCHAR(64);
-DECLARE @apiKey NVARCHAR(32);
+DECLARE @apiKey NVARCHAR(64);
 
 -- Variable declaration related to the JSON string.
 DECLARE @json AS TABLE(Json_Table NVARCHAR(MAX))
@@ -57,8 +57,7 @@ SET @contentType = 'application/json';
 --INSERT into @json (Json_Table) VALUES (@token);
 
 -- Define the URL
-SET @url = 'https://api.lime-go.com/v1/event/feed/?peek=true&data=[out:json]&apikey=c6f6e65b-0379-4bfb-bd06-a7deac89df68
-';
+SET @url = 'https://api.lime-go.com/v1/event/feed/?peek=true&data=[out:json]&apikey=' + @apiKey;
 
 -- This creates the new object.
 EXEC @ret = sp_OACreate 'MSXML2.XMLHTTP', @token OUT;
@@ -76,14 +75,14 @@ INSERT into @json (Json_Table) EXEC sp_OAGetProperty @token, 'responseText'
 -- Select the JSON string from the Table we just inserted it into. You'll also be able to see the entire string with this statement.
 SELECT * FROM @json
 
-IF OBJECT_ID('events', 'U') IS NOT NULL
+IF OBJECT_ID('events') IS NOT NULL
 DROP TABLE events
 
 SELECT 
 	*
 into events FROM OPENJSON((SELECT * FROM @json))   -- USE OPENJSON to begin the parse.
 	WITH (
-		[firstName] NVARCHAR(MAX) '$.items'
-	)
+		firstName NVARCHAR(50) '$.items[0].coworker.firstName'
+	);
 
 SELECT * FROM events;
