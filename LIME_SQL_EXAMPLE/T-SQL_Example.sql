@@ -79,10 +79,17 @@ IF OBJECT_ID('events') IS NOT NULL
 DROP TABLE events
 
 SELECT 
-	*
-into events FROM OPENJSON((SELECT * FROM @json))   -- USE OPENJSON to begin the parse.
-	WITH (
-		firstName NVARCHAR(50) '$.items[0].coworker.firstName'
-	);
+ *
+FROM OPENJSON((SELECT * FROM @json),'$.items')   -- USE OPENJSON to begin the parse.
 
-SELECT * FROM events;
+WITH (
+	coworker NVARCHAR(MAX) AS JSON,
+	eventType NVARCHAR(MAX)
+) AS test
+
+CROSS APPLY OPENJSON([test].[coworker])
+WITH ( 
+ firstName NVARCHAR(MAX),
+ lastName NVARCHAR(MAX),
+ email NVARCHAR(MAX)
+)
