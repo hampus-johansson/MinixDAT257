@@ -9,6 +9,7 @@ CREATE TABLE Users(
 CREATE TABLE ClockifyUser(
 	email TEXT,
 	workedHours REAL NOT NULL,
+	clockID TEXT NOT NULL,
 	PRIMARY KEY (email), 
 	FOREIGN KEY (email) REFERENCES Users (email)
 );
@@ -16,6 +17,7 @@ CREATE TABLE ClockifyUser(
 CREATE TABLE LimeGoUser(
 	email TEXT,
 	salesMeetings INTEGER NOT NULL,
+	limeID TEXT NOT NULL,
 	PRIMARY KEY (email),
 	FOREIGN KEY (email) REFERENCES Users (email)
 );
