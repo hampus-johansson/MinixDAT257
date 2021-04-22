@@ -46,7 +46,7 @@ DECLARE @apiKey NVARCHAR(64);
 DECLARE @json AS TABLE(Json_Table NVARCHAR(MAX))
 
 -- Set the API Key
-SET @apiKey = 'c6f6e65b-0379-4bfb-bd06-a7deac89df68';
+SET @apiKey = 'b604be9b-aaa2-4880-8670-1cbd005c42be';
 
 -- Set Authentications
 SET @authHeader = 'go-api:'+@apiKey;
@@ -79,17 +79,20 @@ IF OBJECT_ID('events') IS NOT NULL
 DROP TABLE events
 
 SELECT 
- *
+ COUNT(*) AS meetings,
+ email
 FROM OPENJSON((SELECT * FROM @json),'$.items')   -- USE OPENJSON to begin the parse.
 
 WITH (
 	coworker NVARCHAR(MAX) AS JSON,
 	eventType NVARCHAR(MAX)
-) AS test
+) AS Coworker
 
-CROSS APPLY OPENJSON([test].[coworker])
+CROSS APPLY OPENJSON([Coworker].[coworker])
 WITH ( 
  firstName NVARCHAR(MAX),
  lastName NVARCHAR(MAX),
  email NVARCHAR(MAX)
 )
+WHERE eventType = 'MeetingBooked'
+GROUP BY email 
