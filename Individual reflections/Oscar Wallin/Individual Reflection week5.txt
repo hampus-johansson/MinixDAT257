@@ -1,0 +1,18 @@
+Individual Reflection Week 5 – Oscar Wallin
+
+•	what do I want to learn or understand better?
+
+Learning some new SQL (TSQL) methods and programming will be my main point of interest during the upcoming sprint, since we will working with the Clockify system and specifically how to format and translate the time durations from the clocking system and trying to smoothly incorporate it into a system that can be easily viewed in Power BI.
+
+•	how can I help someone else, or the entire team, to learn something new?
+
+Other than actively working during our programming sessions and in turn helping out my teammate, if something comes up during our work which conflicts with or is related to some of our issues, I should properly communicate and help with whatever comes up.
+
+•	what is my contribution towards the team’s use of Scrum?
+
+As usual, being active during our sprint planning, sprint reviews and supervisions meeting contributes to our use of scrum. Our Scrum setup is now more thorough, specifically around our acceptance criteria, DoD etc. which makes it easier to follow through on its usage and to properly work as the course has instructed.
+
+•	what is my contribution towards the team’s deliveries?
+
+As usual, everyone in the group were present during our discussion about our Team Reflection deliverable, when changing up, adding and correcting our Scrum board in Git. 
+
