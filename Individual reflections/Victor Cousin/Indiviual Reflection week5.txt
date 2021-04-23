@@ -1,0 +1,12 @@
+﻿What do I want to learn or understand better?
+Vad jag vill lära mig mig denna vecka är att bli bättre på att estimera hur mycket arbete som kan göras på en sprint, då förra veckan inte var optimalt estimerad.
+Då vi denna sprint kommer att arbeta mycket med programmet Power Bi så vill jag även bli bättre på detta.
+
+How can I help someone else, or the entire team, to learn something new?
+Jag kan hjälpa mitt lag genom att fortsätta diskutera hur vi kan arbeta på ett agilt sätt och hur vår sprint kan bli bättre. Jag har även läst på lite extra kring Power Bi, vilket jag kan bidra med.
+
+What is my contribution towards the team’s use of Scrum?
+Jag har bidragit med att vara delaktig i veckans planeringar kring vår Scrum board och hur vi ska anteckna våra KPI:er. Jag har även hjälpt till laget med att koppla ihop vår Scrum board ihop med våra Github issues.
+
+What is my contribution towards the team’s deliveries? 
+Denna vecka har vi delat upp oss i tre grupper som har olika user stories att ta hand om, jag var i grupp med Erika och Linda och tillsammans så skapade vi tabeller i sql, ritade ER-diagram och läste på om Power Bi.
