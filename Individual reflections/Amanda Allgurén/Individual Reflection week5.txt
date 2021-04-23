@@ -1,0 +1,17 @@
+What I what to understand better is how the KPI:s can be used in a more effective way for assessing the sprints. 
+I also what to be better in estimating points for each task. 
+Our point estimation was quite off last week. 
+I think this will be easier the further we get in the course and the more tasks we estimate and by assessing our estimation when reviewing the sprint.
+
+By self-studying about scrum, I have been able to contribute with knowledge to the other team members during team meetings.
+Since I was one of the scrum masters this week, I made sure to read extra about scrum with the main focus on how sprint review and sprint retrospectives should be carried out.
+This for ,during the sprint review and team reflection writing, be able to better contribute with ideas and insights. 
+However, I felt like my knowledge about sprint retrospectives and the prepared document, what to think about when analyzing the sprint, could not be used effectively since the team reflection was constructed differently with not as much focus on assessing last sprint and find opportunities for improvement.
+
+My contribution towards the team's deliveries has been to work on the assigned tasks continously during the week.
+Since I haven't worked much with API's before, I looked at videos and codes about fetching data with API keys.
+I have also discussed the solution with the other API-fetching programming pair to see if they had found any better solution, before we decided to fully go with T-SQL.
+All pairs have been communicating very well and been able to help each other out whenever faced a problem, including me.
+Several times this week, all pairs have worked at the same time but separately (every pair in their own voice channel at discord). 
+This has been a great opportunity to jump to another pair's voice channel when having any form of question and receive a fast response. It's almost like every one is sitting in the same office, but in different rooms.
+
