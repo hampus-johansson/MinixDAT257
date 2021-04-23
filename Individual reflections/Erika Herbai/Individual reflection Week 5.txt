@@ -1,0 +1,11 @@
+What do I want to learn or understand better?
+I want to learn even more about Power BI in order to perform the next sprint of the project. I also feel like I need more knowledge about how to connect different programmes to databases, both Power BI and T-SQL are supposed to be connected after the next sprint.
+
+How can I help someone else, or the entire team, to learn something new?
+As always, by actively taking part in meetings and discussions and doing my part of the tasks. Also by explaining to the other two “programming groups” what my group has done during the sprint so everyone is on the same page about how to move forward with the project.
+
+What is my contribution towards the team’s use of Scrum?
+I actively took part in the sprint review and sprint planning, extra so this week since I was one of the scrum masters. Since I had never worked with Scrum before this project, I made sure to do some research to be able to contribute thoroughly. 
+
+What is my contribution towards the team’s deliveries?
+I have, together with two other members of my group, created an ER diagram and from that also tables in T-SQL. Most time have probably been spent on meetings with the entire group though, concerning review and planning of sprints. 
