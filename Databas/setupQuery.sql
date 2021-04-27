@@ -1,8 +1,11 @@
 CREATE TABLE Users (
 email varchar(100) NOT NULL,
 uname text NOT NULL,
+isITconsultant bit NOT NULL,
+CONSTRAINT UniqueUserIT UNIQUE (email, isITconsultant),
 CONSTRAINT constraintName PRIMARY KEY (email)
 );
+
 CREATE TABLE ClockifyUser(
 	email varchar(100) NOT NULL,
 	workedHours REAL NOT NULL,
@@ -36,7 +39,8 @@ CREATE TABLE Relation (
 	CONSTRAINT RelationPrimaryKey PRIMARY KEY (email),
 	CONSTRAINT RelationforeignKey FOREIGN KEY (email) REFERENCES Users (email),
 	CONSTRAINT RelationforeignKeyOne FOREIGN KEY (email, workedHours) REFERENCES ClockifyUser (email,workedHours),
-	CONSTRAINT RelationforeignKeyTwo FOREIGN KEY (email, salesMeetings) REFERENCES LimeGoUser (email,salesMeetings)
+	CONSTRAINT RelationforeignKeyTwo FOREIGN KEY (email, salesMeetings) REFERENCES LimeGoUser (email,salesMeetings),
+ 	CONSTRAINT RelationforeignKeyThree FOREIGN KEY (email, isITconsultant) REFERENCES Users (email, isITconsultant)
 );
 CREATE TABLE Connections(
 	email varchar(100) NOT NULL,
