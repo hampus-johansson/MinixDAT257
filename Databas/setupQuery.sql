@@ -1,3 +1,4 @@
+--fundera om denna är nödvändig?
 CREATE TABLE Users (
 email varchar(100) NOT NULL,
 uname text NOT NULL,
@@ -17,10 +18,19 @@ CREATE TABLE ClockifyUser(
 CREATE TABLE LimeGoUser(
 	email varchar(100) NOT NULL,
 	salesMeetings INTEGER NOT NULL,
-	limeID TEXT NOT NULL,
+	--behöver ej ID annat än email
+	--limeID TEXT NOT NULL,
 	CONSTRAINT LimeGoPrimaryKey PRIMARY KEY (email),
 	CONSTRAINT UniqueUserSales UNIQUE (email,salesMeetings),
-	CONSTRAINT LimeGoforeignKey FOREIGN KEY (email) REFERENCES Users (email)
+	--behövs en reference key till users??
+	--CONSTRAINT LimeGoforeignKey FOREIGN KEY (email) REFERENCES Users (email)
+);
+--la till denna, behöver troligtvis kollas över primary och foreign keys
+CREATE TABLE LimeGoEvents(
+	position varchar(100) NOT NULL,
+	email varchar(100) NOT NULL,
+	eventType varchar(100) NOT NULL,
+	CONSTRAINT LimeGoEventPrimaryKey PRIMARY KEY (position),
 );
 CREATE TABLE API (
 	APIkey varchar(100) NOT NULL, 

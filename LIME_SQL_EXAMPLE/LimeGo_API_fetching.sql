@@ -46,7 +46,11 @@ DECLARE @apiKey NVARCHAR(64);
 DECLARE @json AS TABLE(Json_Table NVARCHAR(MAX))
 
 -- Set the API Key
-SET @apiKey = 'b604be9b-aaa2-4880-8670-1cbd005c42be';
+--använd
+SET @apiKey = '78caa580-2877-465a-ac78-89956d6bd71e';
+
+--måste = true för att inte stega igenom alla sidor
+DECLARE @peek NVARCHAR(64) = 'true';
 
 -- Set Authentications
 SET @authHeader = 'go-api:'+@apiKey;
@@ -54,45 +58,66 @@ SET @contentType = 'application/json';
 
 
 
---INSERT into @json (Json_Table) VALUES (@token);
+--while loop is commented out, might be used later
+--WHILE true
+--BEGIN
+	--INSERT into @json (Json_Table) VALUES (@token);
 
--- Define the URL
-SET @url = 'https://api.lime-go.com/v1/event/feed/?peek=true&data=[out:json]&apikey=' + @apiKey;
+	-- Define the URL
+	SET @url = 'https://api.lime-go.com/v1/event/feed/?peek=' + @peek + '&data=[out:json]&apikey=' + @apiKey;
 
--- This creates the new object.
-EXEC @ret = sp_OACreate 'MSXML2.XMLHTTP', @token OUT;
-IF @ret <> 0 RAISERROR('Unable to open HTTP connection.', 10, 1);
+	-- This creates the new object.
+	EXEC @ret = sp_OACreate 'MSXML2.XMLHTTP', @token OUT;
+	IF @ret <> 0 RAISERROR('Unable to open HTTP connection.', 10, 1);
 
--- This calls the necessary methods.
-EXEC @ret = sp_OAMethod @token, 'open', NULL, 'GET', @url, 'false';
---EXEC @ret = sp_OAMethod @token, 'setRequestHeader', NULL, 'Authorization', @authHeader;
---EXEC @ret = sp_OAMethod @token, 'setRequestHeader', NULL, 'Content-type', @contentType;
-EXEC @ret = sp_OAMethod @token, 'send'
+	-- This calls the necessary methods.
+	EXEC @ret = sp_OAMethod @token, 'open', NULL, 'GET', @url, 'false';
+	--EXEC @ret = sp_OAMethod @token, 'setRequestHeader', NULL, 'Authorization', @authHeader;
+	--EXEC @ret = sp_OAMethod @token, 'setRequestHeader', NULL, 'Content-type', @contentType;
+	EXEC @ret = sp_OAMethod @token, 'send'
 
--- Grab the responseText property, and insert the JSON string into a table temporarily. This is very important, if you don't do this step you'll run into problems.
-INSERT into @json (Json_Table) EXEC sp_OAGetProperty @token, 'responseText'
+	-- Grab the responseText property, and insert the JSON string into a table temporarily. This is very important, if you don't do this step you'll run into problems.
+	INSERT into @json (Json_Table) EXEC sp_OAGetProperty @token, 'responseText'
 
--- Select the JSON string from the Table we just inserted it into. You'll also be able to see the entire string with this statement.
-SELECT * FROM @json
+	-- Select the JSON string from the Table we just inserted it into. You'll also be able to see the entire string with this statement.
+	SELECT * FROM @json
 
-IF OBJECT_ID('events') IS NOT NULL
-DROP TABLE events
+	/*
+	IF (COALESCE((SELECT * FROM @json), 'false') =  'false')
+		--SET @loopIndicator = 'false';
+		BEGIN
+			BREAK;
+		END
+	*/
 
+	INSERT into LimeGoEvents 
+	SELECT 
+	 position,
+	 email,
+	 eventType
+	FROM OPENJSON((SELECT * FROM @json),'$.items')   -- USE OPENJSON to begin the parse.
+
+	WITH (
+		coworker NVARCHAR(MAX) AS JSON,
+		eventType NVARCHAR(MAX),
+		position NVARCHAR(MAX)
+	) AS Coworker
+
+	CROSS APPLY OPENJSON([Coworker].[coworker])
+	WITH ( 
+	 firstName NVARCHAR(MAX),
+	 lastName NVARCHAR(MAX),
+	 email NVARCHAR(MAX)
+	)
+	GROUP BY position, email, eventType 
+
+--END;
+
+
+INSERT INTO LimeGoUser
 SELECT 
- COUNT(*) AS meetings,
- email
-FROM OPENJSON((SELECT * FROM @json),'$.items')   -- USE OPENJSON to begin the parse.
-
-WITH (
-	coworker NVARCHAR(MAX) AS JSON,
-	eventType NVARCHAR(MAX)
-) AS Coworker
-
-CROSS APPLY OPENJSON([Coworker].[coworker])
-WITH ( 
- firstName NVARCHAR(MAX),
- lastName NVARCHAR(MAX),
- email NVARCHAR(MAX)
-)
+ email,
+ COUNT(*) AS meetings
+FROM LimeGoEvents
 WHERE eventType = 'MeetingBooked'
-GROUP BY email 
+GROUP BY email
