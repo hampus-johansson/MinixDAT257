@@ -11,6 +11,45 @@ RECONFIGURE
 GO
 
 
+DROP FUNCTION dateFormating
+GO
+
+CREATE FUNCTION dateFormating (@duration NVARCHAR(MAX))
+
+RETURNS NVARCHAR(MAX)
+
+
+BEGIN 
+
+	DECLARE @start NVARCHAR(MAX)
+	DECLARE @end NVARCHAR(MAX)
+	DECLARE @result NVARCHAR(MAX)
+	set @start = replace(@duration,'T',' ')
+	set @start = replace(@start,'Z','')
+	set @start = (SELECT SUBSTRING(@start,11,19))
+
+	set @end = replace(@duration,'T',' ')
+	set @end = replace(@end,'Z','')
+	set @end = (SELECT SUBSTRING(@end,39,19))
+
+	set @result = DATEDIFF(second,@start,@end)
+
+	--set @result =  just nu står det i sekunder
+
+	-- Enklaste är att köra datediff timeinterval start och end, där man tar bort z och t
+	RETURN (@result)
+
+END
+GO
+
+DECLARE @duration NVARCHAR(MAX);
+
+DECLARE @retu NVARCHAR(MAX);
+
+
+
+
+
 
 -- Variable declaration related to the Object.
 DECLARE @token INT;
@@ -109,7 +148,7 @@ INSERT into @json2 (Json_Table) EXEC sp_OAGetProperty @token, 'responseText'
 
 INSERT into tempEntries(userId, duration) 
 
-	SELECT userId, timeInterval
+	SELECT userId, dbo.dateFormating(timeInterval)
 
 	 FROM OPENJSON((SELECT * FROM @json2),'$')   -- USE OPENJSON to begin the parse.
 		WITH (
@@ -120,7 +159,6 @@ INSERT into tempEntries(userId, duration)
 		WITH (
 			duration NVARCHAR(MAX)
 		)
-
 
 
 
