@@ -1,0 +1,11 @@
+﻿What do I want to learn or understand better?
+Denna vecka vill jag bli bättre på att arbeta med API:n Clockify då jag ska fokusera mer på att arbeta med det. Jag vill även fortsätta att utvecklas på att estimera hur stora user stories är, då förra veckan inte heller blev optimalt estimerad.
+
+How can I help someone else, or the entire team, to learn something new?
+På en User story ska vi alla i gruppen arbeta tillsammans, då kan jag utnyttja det jag lärt mig hittils i projektet och förhoppningsvis hjälpa till med att lära de andra i gruppen.
+
+What is my contribution towards the team’s use of Scrum?
+Genom diskussioner kring vår planering så har jag bidragit till vårt användande av Scrum, bland annat genom att diskutera fram hur vi kan bli bättre på att estimera våra user stories.
+
+What is my contribution towards the team’s deliveries? 
+Återigen så delades vi upp i 3 grupper som tog hand om olika user stories, jag var med och arbeta med user storien: "As a manager at CTK, I want access to what performance level one employee is at since this will determine their hourly wage." genom att skapa ett workspace i Power BI, koppla till databasen, skapa testdata, och skriva funktion som räknar ut vilken Perfomance Level de anställda är på.
