@@ -1,0 +1,13 @@
+- what do I want to learn or understand better?
+Nästa veck kommer jag fortsätta jobba med clockify och t-sql, men nu kommer jag fokusera på att lära mig mer kring t-sql och hur man kan göra loopar och liknande tekniska delar i t-sql snarare än clockify api:n. Det skulle även vara bra o lära sig att esimera sprints bättre men det är väldigt svårt när man jobbar med något nytt.
+En sak man kan säga är igällafall att det var lättare än vad jag trodde att göra de user stories vi hade denna veckan.
+
+- how can I help someone else, or the entire team, to learn something new?
+Forstätta med t-sql och sedan prata diskutera med de andra som även jobbar med liknande så vi kan lära oss av varandra samma sak med agilt arbetande. 
+
+- what is my contribution towards the team’s use of Scrum?
+Jag har varit delaktig i planerandet av sprinten, reviewen för förra veckan och gjort de userstories som jag skulle göra. Dvs fungerande sql exempel med clockify.
+
+- what is my contribution towards the team’s deliveries?
+Som de andra veckorna har jag varit med i alla teamreflections och sprint planning samt mötet med våran externa intressent. Utöver det har jag även varit med o göra klart en userstory 
+	

@@ -1,8 +1,12 @@
+--fundera om denna är nödvändig?
 CREATE TABLE Users (
 email varchar(100) NOT NULL,
 uname text NOT NULL,
+isITconsultant bit NOT NULL,
+CONSTRAINT UniqueUserIT UNIQUE (email, isITconsultant),
 CONSTRAINT constraintName PRIMARY KEY (email)
 );
+
 CREATE TABLE ClockifyUser(
 	email varchar(100) NOT NULL,
 	workedHours REAL NOT NULL,
@@ -14,10 +18,19 @@ CREATE TABLE ClockifyUser(
 CREATE TABLE LimeGoUser(
 	email varchar(100) NOT NULL,
 	salesMeetings INTEGER NOT NULL,
-	limeID TEXT NOT NULL,
+	--behöver ej ID annat än email
+	--limeID TEXT NOT NULL,
 	CONSTRAINT LimeGoPrimaryKey PRIMARY KEY (email),
 	CONSTRAINT UniqueUserSales UNIQUE (email,salesMeetings),
-	CONSTRAINT LimeGoforeignKey FOREIGN KEY (email) REFERENCES Users (email)
+	--behövs en reference key till users??
+	--CONSTRAINT LimeGoforeignKey FOREIGN KEY (email) REFERENCES Users (email)
+);
+--la till denna, behöver troligtvis kollas över primary och foreign keys
+CREATE TABLE LimeGoEvents(
+	position varchar(100) NOT NULL,
+	email varchar(100) NOT NULL,
+	eventType varchar(100) NOT NULL,
+	CONSTRAINT LimeGoEventPrimaryKey PRIMARY KEY (position),
 );
 CREATE TABLE API (
 	APIkey varchar(100) NOT NULL, 
@@ -36,7 +49,8 @@ CREATE TABLE Relation (
 	CONSTRAINT RelationPrimaryKey PRIMARY KEY (email),
 	CONSTRAINT RelationforeignKey FOREIGN KEY (email) REFERENCES Users (email),
 	CONSTRAINT RelationforeignKeyOne FOREIGN KEY (email, workedHours) REFERENCES ClockifyUser (email,workedHours),
-	CONSTRAINT RelationforeignKeyTwo FOREIGN KEY (email, salesMeetings) REFERENCES LimeGoUser (email,salesMeetings)
+	CONSTRAINT RelationforeignKeyTwo FOREIGN KEY (email, salesMeetings) REFERENCES LimeGoUser (email,salesMeetings),
+ 	CONSTRAINT RelationforeignKeyThree FOREIGN KEY (email, isITconsultant) REFERENCES Users (email, isITconsultant)
 );
 CREATE TABLE Connections(
 	email varchar(100) NOT NULL,
