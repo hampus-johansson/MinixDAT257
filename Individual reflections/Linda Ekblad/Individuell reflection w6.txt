@@ -1,1 +1,36 @@
-Individuell reflection.  Week 5 What do I want to learn or understand better?- Nästkommande sprint ska jag jobba med subscription webhooks, vilket jag aldrig jobbat med tidigare, så det ska jag lära mig mycket om, även om det blir en utmaning. - Vi ska även jobba med att koppla ihop vår frontend med backend så att det verkligen fungerar, det kommer också bli en utmaning och jag måste lära mig mer om detta och förstå hur det fungerar. - Jag har läst på mer om scrum, och förstår nu helheten bättre, hur man ska tänka kring poängsättning, varför det är så viktigt med sprint retrospective och vad de olika rollerna faktistk innebär. How can I help someone else, or the entire team, to learn something new?- Vara delaktig i alla diskussioner och komma med mina idéer. Dela med mig av den kunskapen jag har i våra möten. - Vi par-programmerade en del denna sprinten och då hade jag i förväg jobbat lite och försökt lära känna programmet och det nya programmeringsspråket. Jag tycker att programmeringen gick bra och alla hade lärt sig lite olika saker så vi kompletterade varandra på ett bra sätt. - Jag har läst på mer om scrum denna veckan, och förstår nu helheten bättre, hur man ska tänka kring poängsättning, varför det är så viktigt med sprint retrospective och vad de olika rollerna faktiskt innebär.What is my contribution towards the team’s use of Scrum?- Jag kollar aktivt på föreläsningarna, läser noga igenom alla slides samt googlar när det är något jag inte förstår. - Jag har även läst klart boken om Scrum som fanns på kurshemsidan och genom att läsa den får man en tydligare bild av vad scrum faktiskt innebär och varför det är en bra arbetsprocess. Vi jobbar idag reda med planning poker, diskutterar utförligt poängsättningar och reflekterar mycket över hur tidigare sprint gick, för att kunna presetera bättre på nästa. - Denna veckan var jag scrum master, och jag försökte ta lite mer ansvar kring hur vi ligger till, hur vår scrum board såg ut, samt förberedde lite inför sprint retrospective och sammanställde våra KPI. What is my contribution towards the team’s deliveries?-	Jag läste på en del om T-SQL och programmering i Microsoft server management studio, vilket underlättade vår programmering. Vi samarbetade och googlade tilslammans när vi fastande. -	Jag har även varit delaktig i alla diskusioner kring sprint planning och sprint retrospective. Vi fick denna veckan reda på att vi missförstått att varje userstorie ska vara kopplad till både backend och frontend, vilket har varit svårt för oss då huvuduppgiften med hela vårat projekt nästan är att koppla ihop dessa delar, men nu är vi på väldigt god väg och i nästkommande sprint borde vi få kopplingen att fungera, det kommer också innebära att vi tydligt kommer kunna visa upp vad vi gjort för kunden, och ha en bra demo.  Learning Objective: Jag vill försöka lära mig alla viktiga koncept i kursen genom att aktivit lyssna på föreläsningarna. Jag vill också arbeta bra tillsammans med gruppen och skapa en bra gruppgemenskap där alla känner att de bidrar, detta genom en öppen diskussion och bra strukturerat arbetssätt. Jag vill också lära mig mer om scrum, dels genom föreläsningar, egna erfarenheter samt läsa på ytterligare om det behövs. Jag vill också lära mig mer om programmeringsspråket vi jobbar i nu, samt hur hela systemet med databaser och servrar fungerar, alltså hur man kan koppla upp sig mot någon annans server osv.  
+Individuell reflection.  Week 6 
+
+What do I want to learn or understand better?
+
+
+- N√§stkommande sprint ska jag jobba med subscription webhooks, vilket jag aldrig jobbat med tidigare, s√• det ska jag l√§ra mig mycket om, √§ven om det blir en utmaning. 
+- Vi ska √§ven jobba med att koppla ihop v√•r frontend med backend s√• att det verkligen fungerar, det kommer ocks√• bli en utmaning och jag m√•ste l√§ra mig mer om detta och f√∂rst√• hur det fungerar. 
+- Jag har l√§st p√• mer om scrum, och f√∂rst√•r nu helheten b√§ttre, hur man ska t√§nka kring po√§ngs√§ttning, varf√∂r det √§r s√• viktigt med sprint retrospective och vad de olika rollerna faktistk inneb√§r. 
+
+
+How can I help someone else, or the entire team, to learn something new?
+
+- Vara delaktig i alla diskussioner och komma med mina id√©er. Dela med mig av den kunskapen jag har i v√•ra m√∂ten. 
+
+- Vi par-programmerade en del denna sprinten och d√• hade jag i f√∂rv√§g jobbat lite och f√∂rs√∂kt l√§ra k√§nna programmet och det nya programmeringsspr√•ket. Jag tycker att programmeringen gick bra och alla hade l√§rt sig lite olika saker s√• vi kompletterade varandra p√• ett bra s√§tt. 
+- Jag har l√§st p√• mer om scrum denna veckan, och f√∂rst√•r nu helheten b√§ttre, hur man ska t√§nka kring po√§ngs√§ttning, varf√∂r det √§r s√• viktigt med sprint retrospective och vad de olika rollerna faktiskt inneb√§r.
+
+
+What is my contribution towards the team‚Äôs use of Scrum?
+
+- Jag kollar aktivt p√• f√∂rel√§sningarna, l√§ser noga igenom alla slides samt googlar n√§r det √§r n√•got jag inte f√∂rst√•r. 
+
+- Jag har √§ven l√§st klart boken om Scrum som fanns p√• kurshemsidan och genom att l√§sa den f√•r man en tydligare bild av vad scrum faktiskt inneb√§r och varf√∂r det √§r en bra arbetsprocess. Vi jobbar idag reda med planning poker, diskutterar utf√∂rligt po√§ngs√§ttningar och reflekterar mycket √∂ver hur tidigare sprint gick, f√∂r att kunna presetera b√§ttre p√• n√§sta. 
+- Denna veckan var jag scrum master, och jag f√∂rs√∂kte ta lite mer ansvar kring hur vi ligger till, hur v√•r scrum board s√•g ut, samt f√∂rberedde lite inf√∂r sprint retrospective och sammanst√§llde v√•ra KPI. 
+
+
+
+What is my contribution towards the team‚Äôs deliveries?
+
+-	Jag l√§ste p√• en del om T-SQL och programmering i Microsoft server management studio, vilket underl√§ttade v√•r programmering. Vi samarbetade och googlade tilslammans n√§r vi fastande. 
+
+-	Jag har √§ven varit delaktig i alla diskusioner kring sprint planning och sprint retrospective. Vi fick denna veckan reda p√• att vi missf√∂rst√•tt att varje userstorie ska vara kopplad till b√•de backend och frontend, vilket har varit sv√•rt f√∂r oss d√• huvuduppgiften med hela v√•rat projekt n√§stan √§r att koppla ihop dessa delar, men nu √§r vi p√• v√§ldigt god v√§g och i n√§stkommande sprint borde vi f√• kopplingen att fungera, det kommer ocks√• inneb√§ra att vi tydligt kommer kunna visa upp vad vi gjort f√∂r kunden, och ha en bra demo.  
+
+
+Learning Objective: Jag vill f√∂rs√∂ka l√§ra mig alla viktiga koncept i kursen genom att aktivit lyssna p√• f√∂rel√§sningarna. Jag vill ocks√• arbeta bra tillsammans med gruppen och skapa en bra gruppgemenskap d√§r alla k√§nner att de bidrar, detta genom en √∂ppen diskussion och bra strukturerat arbetss√§tt. Jag vill ocks√• l√§ra mig mer om scrum, dels genom f√∂rel√§sningar, egna erfarenheter samt l√§sa p√• ytterligare om det beh√∂vs. Jag vill ocks√• l√§ra mig mer om programmeringsspr√•ket vi jobbar i nu, samt hur hela systemet med databaser och servrar fungerar, allts√• hur man kan koppla upp sig mot n√•gon annans server osv.  
+
