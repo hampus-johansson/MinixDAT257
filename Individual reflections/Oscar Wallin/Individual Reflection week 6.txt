@@ -1,0 +1,19 @@
+Individual Reflection Week 6  – Oscar Wallin
+
+•	what do I want to learn or understand better?
+
+Since I am still working on the finishing touches of the Clockify part in our system, I still want to learn more about general TSQL programming that will help get our epics done for this week. Continuing on this, if we can properly be done with grabbing the information from Clockify, I would like to work with Power BI and find a way to effectively show our combined data in a useful way.
+
+•	how can I help someone else, or the entire team, to learn something new?
+
+I should properly communicate how our Clockify TSQL code is set up compared to both our Lime-Go project as well as how it would interact with Power BI so that we won’t have too many problems when setting up our combined database, which is our main priority this sprint.
+
+•	what is my contribution towards the team’s use of Scrum?
+
+As usual, being active during our sprint planning, sprint reviews and supervision meeting contributes to our use of scrum. This upcoming sprint I will act as our Scrum Master which I will be able to reflect on next week.
+
+•	what is my contribution towards the team’s deliveries?
+
+Everyone in the group were present during our discussion about our Team Reflection deliverable, when changing up, adding and correcting our Scrum board in Git, as well as figuring out the correct criterias and assignments for our new user stories. 
+
+
