@@ -1,29 +1,19 @@
---fundera om denna är nödvändig?
-CREATE TABLE Users (
-email varchar(100) NOT NULL,
-uname text NOT NULL,
-isITconsultant bit NOT NULL,
-CONSTRAINT UniqueUserIT UNIQUE (email, isITconsultant),
-CONSTRAINT constraintName PRIMARY KEY (email)
-);
+
 
 CREATE TABLE ClockifyUser(
 	email varchar(100) NOT NULL,
 	workedHours REAL NOT NULL,
 	clockID TEXT NOT NULL,
+	isITconsultant bit NOT NULL,
 	CONSTRAINT ClockifyPrimaryKey PRIMARY KEY (email),
-	CONSTRAINT UniqueUser UNIQUE (email,workedHours), 
-	CONSTRAINT foreignKey FOREIGN KEY (email) REFERENCES Users (email)
+	CONSTRAINT UniqueUser UNIQUE (email,workedHours,isITconsultant), 
+	
 );
 CREATE TABLE LimeGoUser(
 	email varchar(100) NOT NULL,
 	salesMeetings INTEGER NOT NULL,
-	--behöver ej ID annat än email
-	--limeID TEXT NOT NULL,
 	CONSTRAINT LimeGoPrimaryKey PRIMARY KEY (email),
 	CONSTRAINT UniqueUserSales UNIQUE (email,salesMeetings),
-	--behövs en reference key till users??
-	--CONSTRAINT LimeGoforeignKey FOREIGN KEY (email) REFERENCES Users (email)
 );
 --la till denna, behöver troligtvis kollas över primary och foreign keys
 CREATE TABLE LimeGoEvents(
@@ -46,21 +36,8 @@ CREATE TABLE Relation (
 	email varchar(100) NOT NULL,
 	workedHours REAL NOT NULL, 
 	salesMeetings INTEGER NOT NULL,
+	isITconsultant bit NOT NULL,
 	CONSTRAINT RelationPrimaryKey PRIMARY KEY (email),
-	CONSTRAINT RelationforeignKey FOREIGN KEY (email) REFERENCES Users (email),
-	CONSTRAINT RelationforeignKeyOne FOREIGN KEY (email, workedHours) REFERENCES ClockifyUser (email,workedHours),
-	CONSTRAINT RelationforeignKeyTwo FOREIGN KEY (email, salesMeetings) REFERENCES LimeGoUser (email,salesMeetings),
- 	CONSTRAINT RelationforeignKeyThree FOREIGN KEY (email, isITconsultant) REFERENCES Users (email, isITconsultant)
-);
-CREATE TABLE Connections(
-	email varchar(100) NOT NULL,
-	pname varchar(100) NOT NULL, 
-	workedHours REAL NOT NULL,
-	salesMeetings INTEGER NOT NULL,
-	APIkey varchar(100) NOT NULL, 
-	CONSTRAINT ConnectionsPrimaryKey PRIMARY KEY (email,pname),
-	CONSTRAINT ConncetionsforeignKey FOREIGN KEY (email) REFERENCES Users (email),
-	CONSTRAINT ConnectionsforeignKeyOne FOREIGN KEY (email, workedHours) REFERENCES ClockifyUser (email,workedHours),
-	CONSTRAINT ConnectionsforeignKeyTwo FOREIGN KEY (email, salesMeetings) REFERENCES LimeGoUser (email,salesMeetings),
-	CONSTRAINT ConnectionsforeignKey FOREIGN KEY (APIkey) REFERENCES Program (APIkey)
+	CONSTRAINT RelationforeignKeyOne FOREIGN KEY (email, workedHours,isITconsultant) REFERENCES ClockifyUser (email,workedHours, isITconsultant),
+	--CONSTRAINT RelationforeignKeyTwo FOREIGN KEY (email, salesMeetings) REFERENCES LimeGoUser (email,salesMeetings)
 );
