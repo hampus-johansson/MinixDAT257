@@ -1,0 +1,12 @@
+What I want to understand better is how the user stories should be constructed in the most effective way and actually be vertical. 
+This was something we noticed we had not done so far. Every user story should be integrating backend and front end
+In last sprint planning, we had this in mind and tried to make them vertical. However, since this was not done in previous sprints, we had to make a user story which integrated all parts from previous sprints.
+
+By discussing in the team about how sprint planning and sprint review should be done differently than last week, 
+I feel like we all have contributed to make the meetings more effective and the point estimation to (hopefully) be more accurate.
+I feel like the concept of scrum is becoming more clear for every week.
+
+My contribution towards the team's deliveries has been to work on the assigned tasks continously during the week.
+All pairs have been communicating very well and been able to help each other out whenever faced a problem, including me.
+Several times this week, all pairs have worked at the same time but separately (every pair in their own voice channel at discord). 
+
