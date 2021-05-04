@@ -1,3 +1,5 @@
+ï»¿USE Konsulttrappan
+
 EXEC sp_configure 'show advanced options', 1
 RECONFIGURE
 GO
@@ -7,34 +9,52 @@ EXEC sp_configure 'Ole Automation Procedures', 1
 RECONFIGURE 
 GO
 
-
+IF OBJECT_ID('dateFormating', 'U') IS NOT NULL
 DROP FUNCTION dateFormating
+
 GO
 
-CREATE FUNCTION dateFormating (@duration NVARCHAR(MAX))
+CREATE FUNCTION dateFormating (@duration NVARCHAR(MAX), @billable NVARCHAR(MAX))
 
 RETURNS int
 
-
 BEGIN 
 
-	DECLARE @start NVARCHAR(MAX)
-	DECLARE @end NVARCHAR(MAX)
-	DECLARE @result int
-	set @start = replace(@duration,'T',' ')
-	set @start = replace(@start,'Z','')
+IF @billable = 'true'
+BEGIN
+    DECLARE @start NVARCHAR(MAX)
+    DECLARE @end NVARCHAR(MAX)
+    DECLARE @result NVARCHAR(MAX)
+    DECLARE @test NVARCHAR(MAX)
+
+    set @test = (SELECT SUBSTRING(@duration,39,19))
+
+    if (CHARINDEX ('null',@duration)>0)
+    BEGIN
 	set @start = (SELECT SUBSTRING(@start,11,19))
+    set @duration = REPLACE(@duration,'null',@start) 
+    END
 
-	set @end = replace(@duration,'T',' ')
-	set @end = replace(@end,'Z','')
-	set @end = (SELECT SUBSTRING(@end,39,19))
+    set @start = replace(@duration,'T',' ')
+    set @start = replace(@start,'Z','')
+    set @start = (SELECT SUBSTRING(@start,11,19))
 
-	set @result = DATEDIFF(second,@start,@end)
+    set @end = replace(@duration,'T',' ')
+    set @end = replace(@end,'Z','')
+    set @end = (SELECT SUBSTRING(@end,39,19))
 
-	--set @result =  just nu står det i sekunder
 
-	-- Enklaste är att köra datediff timeinterval start och end, där man tar bort z och t
-	RETURN (@result)
+    set @result = DATEDIFF(second,@start,@end)
+
+    --set @result =  just nu stï¿½r det i sekunder
+
+    -- Enklaste ï¿½r att kï¿½ra datediff timeinterval start och end, dï¿½r man tar bort z och t
+END
+	ELSE
+	BEGIN
+	set @result = 0
+	END
+    RETURN (@result)
 
 END
 GO
@@ -64,7 +84,7 @@ SET @contentType = 'application/json';
 SET @apiKey = 'YjUxZGZiMWUtMmY2My00NTNhLTk4ODMtYWIzYmI3M2ZjNDRh'
 
 -- Define the URL
-SET @url = 'https://api.clockify.me/api/v1/workspaces/5efdd4e97ce08f0c087a3298/users/?page-size=54'
+SET @url = 'https://api.clockify.me/api/v1/workspaces/5efdd4e97ce08f0c087a3298/users/?page-size=1000'
 
 -- This creates the new object.
 EXEC @ret = sp_OACreate 'MSXML2.XMLHTTP', @token OUT;
@@ -110,7 +130,7 @@ SELECT @Counter = min(Ident) , @MaxId = max(Ident)
 FROM users
 
 DECLARE @entry NVARCHAR(100)
-set @entry = '/time-entries/?page-size=10000'
+set @entry = '/time-entries/?page-size=100000'
 
 IF OBJECT_ID('tempEntries', 'U') IS NOT NULL
 DROP TABLE tempEntries
@@ -139,22 +159,24 @@ INSERT into @json2 (Json_Table) EXEC sp_OAGetProperty @token, 'responseText'
 
 INSERT into tempEntries(userId, duration) 
 
-	SELECT userId, SUM(dbo.dateFormating(timeInterval))
+    SELECT userId, SUM(dbo.dateFormating(timeInterval, billable))
 
-	 FROM OPENJSON((SELECT * FROM @json2),'$')   -- USE OPENJSON to begin the parse.
-		WITH (
-			[userId]  NVARCHAR(MAX),
-			[timeInterval]  NVARCHAR(MAX)  AS JSON  
-		) AS timeInterval 
-		CROSS APPLY OPENJSON([timeInterval])
-		WITH (
-			duration NVARCHAR(MAX)
-		)
-		group by userId
+     FROM OPENJSON((SELECT * FROM @json2),'$') -- USE OPENJSON to begin the parse.
+        WITH (
+            [userId]  NVARCHAR(MAX),
+            [billable] NVARCHAR(MAX),
+            [timeInterval]  NVARCHAR(MAX)  AS JSON
+        ) AS timeInterval 
+        CROSS APPLY OPENJSON([timeInterval])
+        WITH (
+            duration NVARCHAR(MAX)
+        )
+        group by userId
 
 
    delete from @json2 
-   SET @Counter  = @Counter  + 1        
+   SET @Counter  = @Counter  + 1
 END
 
-INSERT INTO ClockifyUser(email, workedHours, clockID, isITconsultant) SELECT email, COALESCE(duration,0), id, 0 FROM tempentries  RIGHT JOIN users ON userId = id
+INSERT INTO ClockifyUser(email, workedHours, clockID, isITconsultant) 
+SELECT email, COALESCE(duration,0), id, 0 FROM tempentries  RIGHT JOIN users ON userId = id

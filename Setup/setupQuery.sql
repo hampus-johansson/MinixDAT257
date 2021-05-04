@@ -1,4 +1,4 @@
-
+USE Konsulttrappan
 
 CREATE TABLE ClockifyUser(
 	email varchar(100) NOT NULL,
