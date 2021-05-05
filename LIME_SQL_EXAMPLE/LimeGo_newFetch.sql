@@ -36,6 +36,9 @@ GO
 -- Variable declaration related to the Object.
 DECLARE @token INT;
 DECLARE @ret INT;
+DECLARE @positionFirst INT;
+DECLARE @positionLast INT;
+
 
 -- Variable declaration related to the Request.
 DECLARE @url NVARCHAR(MAX);
@@ -48,7 +51,7 @@ DECLARE @json AS TABLE(Json_Table NVARCHAR(MAX))
 
 -- Set the API Key
 --använd
-SET @apiKey = '78caa580-2877-465a-ac78-89956d6bd71e';
+SET @apiKey = 'fd8b0d17-e940-4d0c-bae9-34f8ee6bb74f';
 
 --måste = true för att inte stega igenom alla sidor
 DECLARE @peek NVARCHAR(64) = 'false';
@@ -60,10 +63,8 @@ SET @contentType = 'application/json';
 
 
 --while loop is commented out, might be used later
---WHILE true
---BEGIN
-	--INSERT into @json (Json_Table) VALUES (@token);
-
+WHILE 1=1
+BEGIN
 	-- Define the URL
 	SET @url = 'https://api.lime-go.com/v1/event/feed/?peek=' + @peek + '&data=[out:json]&apikey=' + @apiKey;
 
@@ -73,8 +74,6 @@ SET @contentType = 'application/json';
 
 	-- This calls the necessary methods.
 	EXEC @ret = sp_OAMethod @token, 'open', NULL, 'GET', @url, 'false';
-	--EXEC @ret = sp_OAMethod @token, 'setRequestHeader', NULL, 'Authorization', @authHeader;
-	--EXEC @ret = sp_OAMethod @token, 'setRequestHeader', NULL, 'Content-type', @contentType;
 	EXEC @ret = sp_OAMethod @token, 'send'
 
 	-- Grab the responseText property, and insert the JSON string into a table temporarily. This is very important, if you don't do this step you'll run into problems.
@@ -83,15 +82,18 @@ SET @contentType = 'application/json';
 	-- Select the JSON string from the Table we just inserted it into. You'll also be able to see the entire string with this statement.
 	SELECT * FROM @json
 
-	/*
-	IF (COALESCE((SELECT * FROM @json), 'false') =  'false')
-		--SET @loopIndicator = 'false';
-		BEGIN
-			BREAK;
-		END
-	*/
+	IF (NOT EXISTS (SELECT * FROM OPENJSON((SELECT * FROM @json),'$.items')))
+		BREAK;
 
-	INSERT into LimeGoEvents 
+
+	CREATE TABLE NewLimeGoEvents(
+	position varchar(100) NOT NULL,
+	email varchar(100) NOT NULL,
+	eventType varchar(100) NOT NULL,
+	);
+
+
+	INSERT into NewLimeGoEvents 
 	SELECT 
 	 position,
 	 email,
@@ -112,16 +114,31 @@ SET @contentType = 'application/json';
 	)
 	GROUP BY position, email, eventType 
 
---END;
+	INSERT INTO LimeGoEvents 
+	SELECT * FROM NewLimeGoEvents
+
+	/*
+	INSERT LimeGoUser(email, 1)  
+	SELECT email
+	FROM NewLimeGoEvents
+	WHERE NOT EXISTS (SELECT email FROM LimeGoUser u WHERE u.email = NewLimeGoEvents.email);
+	*/
+
+	MERGE dbo.LimeGoUser AS U USING dbo.NewLimeGoEvents AS N
+	ON (N.email = U.email)
+	
+	WHEN MATCHED AND eventType = 'MeetingBooked'
+		THEN 
+		UPDATE SET U.salesMeetings = U.salesMeetings + 1 
+	
+	WHEN NOT MATCHED BY TARGET AND eventType = 'MeetingBooked'
+		THEN 
+		INSERT (email, salesMeetings) 
+		VALUES (N.email, 1);
 
 
+	DROP TABLE NewLimeGoEvents
+	DELETE @json
 
-INSERT INTO LimeGoUser
-SELECT 
- email,
- COUNT(*) AS meetings
-FROM LimeGoEvents
---WHERE eventType = 'MeetingBooked'
-GROUP BY email
-
+	END;
 
