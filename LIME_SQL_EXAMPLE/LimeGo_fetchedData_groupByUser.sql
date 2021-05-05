@@ -36,6 +36,9 @@ GO
 -- Variable declaration related to the Object.
 DECLARE @token INT;
 DECLARE @ret INT;
+DECLARE @positionFirst INT;
+DECLARE @positionLast INT;
+
 
 -- Variable declaration related to the Request.
 DECLARE @url NVARCHAR(MAX);
@@ -73,8 +76,6 @@ SET @contentType = 'application/json';
 
 	-- This calls the necessary methods.
 	EXEC @ret = sp_OAMethod @token, 'open', NULL, 'GET', @url, 'false';
-	--EXEC @ret = sp_OAMethod @token, 'setRequestHeader', NULL, 'Authorization', @authHeader;
-	--EXEC @ret = sp_OAMethod @token, 'setRequestHeader', NULL, 'Content-type', @contentType;
 	EXEC @ret = sp_OAMethod @token, 'send'
 
 	-- Grab the responseText property, and insert the JSON string into a table temporarily. This is very important, if you don't do this step you'll run into problems.
@@ -91,7 +92,15 @@ SET @contentType = 'application/json';
 		END
 	*/
 
-	INSERT into LimeGoEvents 
+
+	CREATE TABLE NewLimeGoEvents(
+	position varchar(100) NOT NULL,
+	email varchar(100) NOT NULL,
+	eventType varchar(100) NOT NULL,
+	);
+
+
+	INSERT into NewLimeGoEvents 
 	SELECT 
 	 position,
 	 email,
@@ -112,16 +121,29 @@ SET @contentType = 'application/json';
 	)
 	GROUP BY position, email, eventType 
 
+	INSERT INTO LimeGoEvents 
+	SELECT * FROM NewLimeGoEvents
+
+	/*
+	INSERT LimeGoUser(email, 1)  
+	SELECT email
+	FROM NewLimeGoEvents
+	WHERE NOT EXISTS (SELECT email FROM LimeGoUser u WHERE u.email = NewLimeGoEvents.email);
+	*/
+
+	MERGE dbo.LimeGoUser AS U USING dbo.NewLimeGoEvents AS N
+	ON (N.email = U.email)
+	
+	WHEN MATCHED THEN 
+		UPDATE SET U.salesMeetings = U.salesMeetings + 1
+	
+	WHEN NOT MATCHED BY TARGET THEN 
+		INSERT (email, salesMeetings) 
+		VALUES (N.email, 1);
+
+
 --END;
 
 
 
-INSERT INTO LimeGoUser
-SELECT 
- email,
- COUNT(*) AS meetings
-FROM LimeGoEvents
---WHERE eventType = 'MeetingBooked'
-GROUP BY email
-
-
+DROP TABLE NewLimeGoEvents
