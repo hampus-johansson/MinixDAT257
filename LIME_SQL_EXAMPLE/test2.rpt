@@ -1,0 +1,16 @@
+﻿Configuration option 'show advanced options' changed from 1 to 1. Run the RECONFIGURE statement to install.
+Configuration option 'Ole Automation Procedures' changed from 1 to 1. Run the RECONFIGURE statement to install.
+
+(1 row affected)
+Json_Table
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+{"items":[{"position":56337,"eventType":"OrganizationWorkingOnIt","createdDate":"2021-03-04T13:24:53.828449+01:00","coworker":{"id":1202519,"firstName":"Erik","lastName":"Broström","email":"erik.brostrom@ctk.se","directPhoneNumber":"","homePhoneNumber":"",
+
+(1 row affected)
+
+(50 rows affected)
+
+(4 rows affected)
+
+
+Completion time: 2021-05-03T09:33:12.4774356+02:00
