@@ -1,0 +1,11 @@
+What do I want to learn or understand better?
+I want to learn even more about Power BI in order to collect data from an online excel document as well. And also how to connect the final product to microsoft teams. So basically connecting different programs with each other this week as well. 
+ 
+How can I help someone else, or the entire team, to learn something new?
+As always, by actively taking part in meetings and discussions and doing my part of the tasks. Also by stepping in if another programming group has fallen behind because of a more difficult task. We also go through everything that we have done by the end of each sprint so everyone can learn from all the others.
+ 
+What is my contribution towards the team’s use of Scrum?
+Actively taking part in meetings and taking initiatives during our discussions. Everyone has gotten used to the agile way of working so the reviewing and planning is more efficient now than at the beginning. 
+ 
+What is my contribution towards the team’s deliveries?
+I have, together with two other members in my group, managed to collect data from LimeGo and Clockify into Power BI in order to be able to illustrate the information in a convenient way for the client. We also set up some instructions for how to run the files and connect to a database to make it easier for the rest of the group (and the client) to understand our task. This week we had a demo for the client who was satisfied with how far we had gotten.
