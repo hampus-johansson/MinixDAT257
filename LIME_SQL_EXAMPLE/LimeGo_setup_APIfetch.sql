@@ -7,6 +7,7 @@
   configuration option to 1.
 */
 
+
 EXEC sp_configure 'show advanced options', 1
 RECONFIGURE
 GO
@@ -47,10 +48,10 @@ DECLARE @json AS TABLE(Json_Table NVARCHAR(MAX))
 
 -- Set the API Key
 --använd
-SET @apiKey = '78caa580-2877-465a-ac78-89956d6bd71e';
+SET @apiKey = 'fd8b0d17-e940-4d0c-bae9-34f8ee6bb74f';
 
 --måste = true för att inte stega igenom alla sidor
-DECLARE @peek NVARCHAR(64) = 'true';
+DECLARE @peek NVARCHAR(64) = 'false';
 
 -- Set Authentications
 SET @authHeader = 'go-api:'+@apiKey;
@@ -59,8 +60,8 @@ SET @contentType = 'application/json';
 
 
 --while loop is commented out, might be used later
---WHILE true
---BEGIN
+WHILE 1=1
+BEGIN
 	--INSERT into @json (Json_Table) VALUES (@token);
 
 	-- Define the URL
@@ -82,13 +83,12 @@ SET @contentType = 'application/json';
 	-- Select the JSON string from the Table we just inserted it into. You'll also be able to see the entire string with this statement.
 	SELECT * FROM @json
 
-	/*
-	IF (COALESCE((SELECT * FROM @json), 'false') =  'false')
-		--SET @loopIndicator = 'false';
-		BEGIN
-			BREAK;
-		END
-	*/
+
+	IF (NOT EXISTS (SELECT * FROM OPENJSON((SELECT * FROM @json),'$.items')))
+		BREAK;
+	
+
+
 
 	INSERT into LimeGoEvents 
 	SELECT 
@@ -111,7 +111,9 @@ SET @contentType = 'application/json';
 	)
 	GROUP BY position, email, eventType 
 
---END;
+	DELETE @json
+
+	END;
 
 
 INSERT INTO LimeGoUser
@@ -121,3 +123,5 @@ SELECT
 FROM LimeGoEvents
 WHERE eventType = 'MeetingBooked'
 GROUP BY email
+
+

@@ -2,6 +2,7 @@
 CREATE TABLE Users (
 email varchar(100) NOT NULL,
 uname text NOT NULL,
+-- bör inte isItconsultant flyttas till ClockifyUser?
 isITconsultant bit NOT NULL,
 CONSTRAINT UniqueUserIT UNIQUE (email, isITconsultant),
 CONSTRAINT constraintName PRIMARY KEY (email)
@@ -46,6 +47,7 @@ CREATE TABLE Relation (
 	email varchar(100) NOT NULL,
 	workedHours REAL NOT NULL, 
 	salesMeetings INTEGER NOT NULL,
+	isITconsultant BIT NOT NULL, 
 	CONSTRAINT RelationPrimaryKey PRIMARY KEY (email),
 	CONSTRAINT RelationforeignKey FOREIGN KEY (email) REFERENCES Users (email),
 	CONSTRAINT RelationforeignKeyOne FOREIGN KEY (email, workedHours) REFERENCES ClockifyUser (email,workedHours),
