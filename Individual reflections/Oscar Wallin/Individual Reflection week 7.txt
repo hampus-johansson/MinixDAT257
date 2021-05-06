@@ -1,0 +1,17 @@
+Individual Reflection Week 7  – Oscar Wallin
+
+•	what do I want to learn or understand better?
+
+I want to understand how to properly update our database to continuously give out data since we want to show and inform when changes happen. Apart from this, further work on extracting data through the Clockify API is my main objective for this sprint which once again mainly includes T-SQL. In general, I’d like to have a better understanding of our whole repository and how each part of it works, which will help during the closing stages of our project work.
+
+•	how can I help someone else, or the entire team, to learn something new?
+
+Since we have some tasks that in some ways overlap or may need communication between the different assignees, I should be ready to help out if any problem arises during coding. Other than that, properly explaining my contribution during our sprint review and showing the code we’ve worked on will help out those who are interested in learning what we’ve specifically worked on during the week.
+
+•	what is my contribution towards the team’s use of Scrum?
+
+As usual, being active during our sprint planning, sprint reviews and supervision meeting contributes to our use of scrum. As Scrum Master I’ve mostly done ‘extra’ work during out sprint review and planning, but nothing extremely notable since the way our group is set up and how our communication works at this point makes the need and work for a Scrum Master less intensive.
+
+•	what is my contribution towards the team’s deliveries?
+
+As usual, everyone in the group was present during our discussion about our Team Reflection deliverable, when changing up, adding and correcting our Scrum board in Git. This involves planning poker, creating user stories and evaluating our various KPI’s. 
