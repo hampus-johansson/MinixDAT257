@@ -22,15 +22,11 @@ CREATE TABLE LimeGoEvents(
 	eventType varchar(100) NOT NULL,
 	CONSTRAINT LimeGoEventPrimaryKey PRIMARY KEY (position),
 );
-CREATE TABLE API (
-	APIkey varchar(100) NOT NULL, 
-	CONSTRAINT APIPrimaryKey PRIMARY KEY (APIkey)
-);
-CREATE TABLE Program(
+
+CREATE TABLE API(
 	pname varchar(100) NOT NULL, 
 	APIkey varchar(100) NOT NULL UNIQUE,
-	CONSTRAINT ProgramPrimaryKey PRIMARY KEY (pname), 
-	CONSTRAINT ProgramforeignKey FOREIGN KEY (APIkey) REFERENCES API (APIkey)
+	CONSTRAINT ProgramPrimaryKey PRIMARY KEY (pname)
 );
 CREATE TABLE Relation (
 	email varchar(100) NOT NULL,
