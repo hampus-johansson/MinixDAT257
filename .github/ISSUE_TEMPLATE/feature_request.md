@@ -15,6 +15,7 @@ Acceptanskriterier:
 - [ ] En utvecklare som ej arbetat med User Storyn har reviewat koden/uppgiften
 
 Checklista för Definition of Done
+- [ ] Uppdateringen är testbar i Power BI
 - [ ] Alla acceptanskriterier är uppfyllda för User Storyn
 - [ ] Alla co-authors till User Storyn har angetts i committen
 - [ ] All tid som lagts på User Storyn ska vara loggad i Clockify
