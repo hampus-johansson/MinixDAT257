@@ -1,0 +1,41 @@
+﻿Individuell reflection.  Week 7
+
+
+What do I want to learn or understand better?
+
+
+ Nästkommande sprint ska vi jobba på att få databaserna att uppdateras och hämta hem all ”ohämtad” data. Detta är något jag inte riktigt vet hur vi ska lösa, men jag ska läsa på om ämnet och försöka klura ut någon bra lösning. Kanske kan power bi skicka ut något kommando, annars får vi göra nån lösning i databasen.  
+ 
+Vi pratade även en del kring hur man ska poängsätta userstories när man har genomfört delar av dem men inte hela, och därav skickar den vidare till nästsa sprint, ska man då poängsätta och ta hänsyn till arbetet som redan gjorts, eller bara tänka på arbetet som ska göras denna sprinten. Detta är något jag ska läsa på mer om. 
+
+
+How can I help someone else, or the entire team, to learn something new?
+
+
+- Vara delaktig i alla diskussioner och komma med mina idéer. Dela med mig av den kunskapen jag har i våra möten. 
+
+
+- Vi par-programmerade mycket denna sprinten också, och det har fungerat väldigt bra då alla har lite olika erfarenheter och kuskaper. 
+
+
+What is my contribution towards the team’s use of Scrum?
+
+
+- Jag kollar aktivt på föreläsningarna, läser noga igenom alla slides samt googlar när det är något jag inte förstår. 
+
+
+- Jag har även läst klart boken om Scrum som fanns på kurshemsidan och genom att läsa den får man en tydligare bild av vad scrum faktiskt innebär och varför det är en bra arbetsprocess. Vi jobbar idag reda med planning poker, diskutterar utförligt poängsättningar och reflekterar mycket över hur tidigare sprint gick, för att kunna presetera bättre på nästa. 
+
+
+
+
+What is my contribution towards the team’s deliveries?
+
+
+-        Jag och Amanda lyckades hämta hem all data från LimeGo, och ta hänsyn till ifall det är gammal data som ska hämtas, eller ifall det är ny data sen databasen uppdaterades senast. Vi trodde först att vi skulle göra detta med webhooks, men efter mycket googlande insåg vi att den metoden inte skulle passa oss, och vi behövde då tänka om med hela user storyn och alla dess tasks. USer storyn genomfördes delvis, och den ska fortsätta arbetas på i nästa sprint, men nu med nya tasks. 
+
+
+-        Jag har även varit delaktig i alla diskusioner kring sprint planning och sprint retrospective. Vi har jobbat mycket med att user storiesn ska vara vertikala, men detta är något som är mycket lättare nu när frontend och backend faktiskt äntligen är ihopkopplade. Arbetet känms och har fungerat bra, vi har grundfunktionaliteten men en del kvar att fixa innan vi gjort våran stakeholder helt nöjd. 
+
+
+Learning Objective: Jag vill försöka lära mig alla viktiga koncept i kursen genom att aktivit lyssna på föreläsningarna. Jag vill också arbeta bra tillsammans med gruppen och skapa en bra gruppgemenskap där alla känner att de bidrar, detta genom en öppen diskussion och bra strukturerat arbetssätt. Jag vill också lära mig mer om scrum, dels genom föreläsningar, egna erfarenheter samt läsa på ytterligare om det behövs. Jag vill också lära mig mer om programmeringsspråket vi jobbar i nu, samt hur hela systemet med databaser och servrar fungerar, alltså hur man kan koppla upp sig mot någon annans server osv.
