@@ -60,7 +60,11 @@ DECLARE @peek NVARCHAR(64) = 'false';
 SET @authHeader = 'go-api:'+@apiKey;
 SET @contentType = 'application/json';
 
-
+	CREATE TABLE NewLimeGoEvents(
+	position varchar(100) NOT NULL,
+	email varchar(100) NOT NULL,
+	eventType varchar(100) NOT NULL,
+	);
 
 --while loop is commented out, might be used later
 WHILE 1=1
@@ -86,13 +90,6 @@ BEGIN
 		BREAK;
 
 
-	CREATE TABLE NewLimeGoEvents(
-	position varchar(100) NOT NULL,
-	email varchar(100) NOT NULL,
-	eventType varchar(100) NOT NULL,
-	);
-
-
 	INSERT into NewLimeGoEvents 
 	SELECT 
 	 position,
@@ -114,8 +111,7 @@ BEGIN
 	)
 	GROUP BY position, email, eventType 
 
-	INSERT INTO LimeGoEvents 
-	SELECT * FROM NewLimeGoEvents
+
 
 	/*
 	INSERT LimeGoUser(email, 1)  
@@ -124,21 +120,35 @@ BEGIN
 	WHERE NOT EXISTS (SELECT email FROM LimeGoUser u WHERE u.email = NewLimeGoEvents.email);
 	*/
 
-	MERGE dbo.LimeGoUser AS U USING dbo.NewLimeGoEvents AS N
-	ON (N.email = U.email)
-	
-	WHEN MATCHED AND eventType = 'MeetingBooked'
-		THEN 
-		UPDATE SET U.salesMeetings = U.salesMeetings + 1 
-	
-	WHEN NOT MATCHED BY TARGET AND eventType = 'MeetingBooked'
-		THEN 
-		INSERT (email, salesMeetings) 
-		VALUES (N.email, 1);
-
-
-	DROP TABLE NewLimeGoEvents
 	DELETE @json
 
 	END;
 
+	INSERT INTO LimeGoEvents 
+	SELECT * FROM NewLimeGoEvents
+
+	CREATE TABLE NewLimeGoUser(email NVARCHAR(100), meetings INT) 
+
+	INSERT INTO NewLimeGoUser
+	SELECT 
+	email,
+	COUNT(*) AS meetings
+	FROM NewLimeGoEvents
+	WHERE eventType = 'MeetingBooked'
+	GROUP BY email
+
+	MERGE dbo.LimeGoUser AS U USING dbo.NewLimeGoUser AS N
+	ON (N.email = U.email)
+	
+	WHEN MATCHED
+		THEN 
+		UPDATE SET U.salesMeetings = U.salesMeetings + N.meetings 
+	
+	WHEN NOT MATCHED BY TARGET
+		THEN 
+		INSERT (email, salesMeetings) 
+		VALUES (N.email, N.meetings);
+
+
+	DROP TABLE NewLimeGoEvents
+	DROP TABLE NewLimeGoUser
