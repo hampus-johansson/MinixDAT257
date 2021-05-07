@@ -1,0 +1,11 @@
+﻿What do I want to learn or understand better?
+Denna vecka vill jag bli mer insatt att arbeta med vårt andra API : LimeGo, då jag ska arbeta med User stories där detta api krävs. Nu ska vi även få våra databaser att uppdateras kontinuerligt, och då har vi valt att arbeta med scheduled jobs.
+
+How can I help someone else, or the entire team, to learn something new?
+Genom min kunskap att arbeta med Clockify API så kan jag bidra med att hjälpa till min grupp med att använda koden som vi har skrivit tidigare.
+
+What is my contribution towards the team’s use of Scrum?
+Genom att vara aktiv på sprint reviews, planning och team relections. Vi har även nu lyckats få våra user stories bli bättre estimerade och mer vertikala.
+
+What is my contribution towards the team’s deliveries? 
+Jag och Oscar har denna sprint arbetat med Clockify och löst buggar och lagt till de funktioner som har fattats. 

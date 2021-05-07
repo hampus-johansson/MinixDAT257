@@ -1,0 +1,11 @@
+In order to make our database update continuously, this week I want to learn how the sql queries can be run like scheduled jobs.
+Regarding scrum, I want to understand how not finished user stories put in backlog should be estimated and counted as done points.
+For this week we reestimated the user story since it was mainly finished but we could not track any of the points as done, which made the perfomed points for the week somewhat misleading.
+We will count all points spent on the user story as performed when the user story is all done. But this will also make that week's points somewhat misleading...
+
+My contribution towards the use of scrum has been by actively participate in sprint review, sprint planning and writing the team reflection.
+I make sure that all my questions regarding scrum is asked and discussed during the team meetings.
+
+My contribution toward the team's deliveries is mainly regarding the fetching from Lime Go. 
+Even though we have switched the programming pairs different weeks to better working with all team members and also pass knowledge to the rest of the group, 
+I have extra knowledge within Lime Go API area and think I have, and will, contribute with knowledge to the rest of the group.
