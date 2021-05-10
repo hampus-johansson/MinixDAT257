@@ -27,7 +27,7 @@ CREATE TABLE API(
 	pname varchar(100) NOT NULL, 
 	APIkey varchar(100) NOT NULL UNIQUE,
 	CONSTRAINT ProgramPrimaryKey PRIMARY KEY (pname)
-);
+); 
 CREATE TABLE Relation (
 	email varchar(100) NOT NULL,
 	workedHours REAL NOT NULL, 
@@ -35,5 +35,5 @@ CREATE TABLE Relation (
 	isITconsultant bit NOT NULL,
 	CONSTRAINT RelationPrimaryKey PRIMARY KEY (email),
 	CONSTRAINT RelationforeignKeyOne FOREIGN KEY (email, workedHours,isITconsultant) REFERENCES ClockifyUser (email,workedHours, isITconsultant),
-	--CONSTRAINT RelationforeignKeyTwo FOREIGN KEY (email, salesMeetings) REFERENCES LimeGoUser (email,salesMeetings)
+	CONSTRAINT RelationforeignKeyTwo FOREIGN KEY (email, salesMeetings) REFERENCES LimeGoUser (email, salesMeetings)
 );

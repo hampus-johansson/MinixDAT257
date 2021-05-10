@@ -1,3 +1,4 @@
+USE Konsulttrappan
 
 /*
   UNDERSTANDING THE Show Advanced Options
@@ -129,6 +130,7 @@ BEGIN
 
 	CREATE TABLE NewLimeGoUser(email NVARCHAR(100), meetings INT) 
 
+
 	INSERT INTO NewLimeGoUser
 	SELECT 
 	email,
@@ -136,6 +138,8 @@ BEGIN
 	FROM NewLimeGoEvents
 	WHERE eventType = 'MeetingBooked'
 	GROUP BY email
+
+	INSERT INTO NewLimeGoUser VALUES ('test', 1)
 
 	MERGE dbo.LimeGoUser AS U USING dbo.NewLimeGoUser AS N
 	ON (N.email = U.email)
