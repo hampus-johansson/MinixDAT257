@@ -26,14 +26,10 @@ BEGIN
     DECLARE @start NVARCHAR(MAX)
     DECLARE @end NVARCHAR(MAX)
     DECLARE @result NVARCHAR(MAX)
-    DECLARE @test NVARCHAR(MAX)
-
-    set @test = (SELECT SUBSTRING(@duration,39,19))
 
     if (CHARINDEX ('null',@duration)>0)
     BEGIN
-	set @start = (SELECT SUBSTRING(@start,11,19))
-    set @duration = REPLACE(@duration,'null',@start) 
+	set @result = 0 
     END
 
     set @start = replace(@duration,'T',' ')
@@ -70,6 +66,7 @@ DECLARE @ret INT;
 -- Variable declaration related to the Request.
 DECLARE @url NVARCHAR(MAX);
 DECLARE @url2 NVARCHAR(MAX);
+DECLARE @url3 NVARCHAR(MAX);
 DECLARE @authHeader NVARCHAR(64);
 DECLARE @contentType NVARCHAR(64);
 DECLARE @apiKey NVARCHAR(32);
@@ -77,6 +74,7 @@ DECLARE @apiKey NVARCHAR(32);
 -- Variable declaration related to the JSON string.
 DECLARE @json AS TABLE(Json_Table NVARCHAR(MAX))
 DECLARE @json2 AS TABLE(Json_Table NVARCHAR(MAX))
+DECLARE @json3 AS TABLE(Json_Table NVARCHAR(MAX))
 -- Set Authentications
 SET @authHeader = 'OTU2ODIzYTItZjk1OC00ODUwLTgxNDQtNGFmN2QyMzg5Y2I2';
 SET @contentType = 'application/json';
@@ -117,6 +115,32 @@ into tempUsers FROM OPENJSON((SELECT * FROM @json))   -- USE OPENJSON to begin t
 
 IF OBJECT_ID('users', 'U') IS NOT NULL
 DROP TABLE users
+
+SET @url3 = 'https://api.clockify.me/api/v1/workspaces/60740385f455dc1737d51d67/user-groups'
+
+
+EXEC @ret = sp_OAMethod @token, 'open', NULL, 'GET', @url3, 'false';
+EXEC @ret = sp_OAMethod @token, 'setRequestHeader', NULL, 'X-Api-Key:', @authHeader;
+EXEC @ret = sp_OAMethod @token, 'setRequestHeader', NULL, 'Content-type', @contentType;
+EXEC @ret = sp_OAMethod @token, 'send'
+
+
+INSERT into @json3 (Json_Table) EXEC sp_OAGetProperty @token, 'responseText'
+
+SELECT * FROM @json3
+
+IF OBJECT_ID('tempGroups', 'U') IS NOT NULL
+DROP TABLE tempGroups
+
+SELECT 
+	*
+into tempGroups FROM OPENJSON((SELECT * FROM @json3))   -- USE OPENJSON to begin the parse.
+	WITH (
+		groupName NVARCHAR(MAX) '$.name',
+		id NVARCHAR(MAX) '$.userIds' AS JSON  
+	) 
+
+SELECT * FROM tempGroups WHERE groupName = 'IT-are'
 
 SELECT IDENTITY(int, 1,1) AS Ident, tempUsers.fullname, tempUsers.email, tempUsers.id
 INTO users
