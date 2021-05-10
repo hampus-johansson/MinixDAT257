@@ -1,4 +1,7 @@
-﻿USE Konsulttrappan
+USE Konsulttrappan
+
+
+
 
 EXEC sp_configure 'show advanced options', 1
 RECONFIGURE
@@ -9,80 +12,17 @@ EXEC sp_configure 'Ole Automation Procedures', 1
 RECONFIGURE 
 GO
 
+DROP TABLE IF EXISTS NewClockifyUser
 
-DROP FUNCTION dateFormating
-GO
+CREATE TABLE NewClockifyUser(
+	email varchar(100) NOT NULL,
+	workedHours REAL NOT NULL,
+	clockID TEXT NOT NULL,
+	isITconsultant bit NOT NULL,
+	CONSTRAINT NewClockifyPrimaryKey PRIMARY KEY (email),
+	CONSTRAINT NewUniqueUser UNIQUE (email,workedHours,isITconsultant), 
+);
 
-CREATE FUNCTION dateFormating (@duration NVARCHAR(MAX), @billable NVARCHAR(MAX))
-
-RETURNS int
-
-BEGIN 
-
-IF @billable = 'true'
-BEGIN
-    DECLARE @start NVARCHAR(MAX)
-    DECLARE @end NVARCHAR(MAX)
-    DECLARE @result NVARCHAR(MAX)
-    DECLARE @test NVARCHAR(MAX)
-
-    set @test = (SELECT SUBSTRING(@duration,39,19))
-
-    if (CHARINDEX ('null',@duration)>0)
-    BEGIN
-	set @start = (SELECT SUBSTRING(@start,11,19))
-    set @duration = REPLACE(@duration,'null',@start) 
-    END
-
-    set @start = replace(@duration,'T',' ')
-    set @start = replace(@start,'Z','')
-    set @start = (SELECT SUBSTRING(@start,11,19))
-
-    set @end = replace(@duration,'T',' ')
-    set @end = replace(@end,'Z','')
-    set @end = (SELECT SUBSTRING(@end,39,19))
-
-
-    set @result = DATEDIFF(second,@start,@end)
-
-    --set @result =  just nu st�r det i sekunder
-
-    -- Enklaste �r att k�ra datediff timeinterval start och end, d�r man tar bort z och t
-END
-	ELSE
-	BEGIN
-	set @result = 0
-	END
-    RETURN (@result)
-
-END
-GO
-
-
-DROP FUNCTION textFormating
-GO
-
-CREATE FUNCTION textFormating (@text NVARCHAR(MAX))
-
-RETURNS NVARCHAR(MAX)
-
-
-BEGIN 
-
-
-    --DECLARE @start NVARCHAR(MAX)
-
-
-    set @text = replace(@text,'"','')
-	set @text = replace(@text,'[','')
-	set @text = replace(@text,']','')
-
-
-
-   RETURN (@text)
-
-END
-GO
 
 -- Variable declaration related to the Object.
 DECLARE @token INT;
@@ -124,11 +64,12 @@ EXEC @ret = sp_OAMethod @token, 'send'
 INSERT into @json (Json_Table) EXEC sp_OAGetProperty @token, 'responseText'
 
 -- Select the JSON string from the Table we just inserted it into. You'll also be able to see the entire string with this statement.
+SET TEXTSIZE -1
 SELECT * FROM @json
 
 IF OBJECT_ID('tempUsers', 'U') IS NOT NULL
 DROP TABLE tempUsers
-
+SET TEXTSIZE -1
 SELECT 
 	*
 into tempUsers FROM OPENJSON((SELECT * FROM @json))   -- USE OPENJSON to begin the parse.
@@ -140,7 +81,6 @@ into tempUsers FROM OPENJSON((SELECT * FROM @json))   -- USE OPENJSON to begin t
 
 IF OBJECT_ID('users', 'U') IS NOT NULL
 DROP TABLE users
-
 
 -- ny tt
 SET @url3 = 'https://api.clockify.me/api/v1/workspaces/5efdd4e97ce08f0c087a3298/user-groups'
@@ -186,6 +126,8 @@ group by fullname,email,id
 
 
 --nytt
+
+
 
 
 DECLARE @Counter INT , @MaxId INT, 
@@ -242,8 +184,21 @@ INSERT into tempEntries(userId, duration)
    SET @Counter  = @Counter  + 1
 END
 
-
---delete from ClockifyUser
-
-INSERT INTO ClockifyUser(email, workedHours, clockID, isITconsultant) 
+INSERT INTO NewClockifyUser(email, workedHours, clockID, isITconsultant) 
 SELECT email, COALESCE(duration,0), id, iTkonsult FROM tempentries  RIGHT JOIN users ON userId = id
+
+
+
+MERGE ClockifyUser AS U USING NewClockifyUser AS N
+	ON (N.email = U.email)
+	
+	WHEN MATCHED
+		THEN 
+		UPDATE SET U.workedHours = N.workedHours, U.isITconsultant = N.isITconsultant
+	
+	WHEN NOT MATCHED BY TARGET
+		THEN 
+		INSERT (email, workedHours, clockID, isITconsultant) 
+		VALUES (N.email, N.workedHours, N.clockID, N.isITconsultant);
+
+--DROP TABLE NewClockifyUser
