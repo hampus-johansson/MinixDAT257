@@ -1,5 +1,4 @@
 USE Konsulttrappan
-
 CREATE TABLE ClockifyUser(
 	email varchar(100) NOT NULL,
 	workedHours REAL NOT NULL,
@@ -7,7 +6,6 @@ CREATE TABLE ClockifyUser(
 	isITconsultant bit NOT NULL,
 	CONSTRAINT ClockifyPrimaryKey PRIMARY KEY (email),
 	CONSTRAINT UniqueUser UNIQUE (email,workedHours,isITconsultant), 
-	
 );
 CREATE TABLE LimeGoUser(
 	email varchar(100) NOT NULL,
@@ -34,6 +32,6 @@ CREATE TABLE Relation (
 	salesMeetings INTEGER NOT NULL,
 	isITconsultant bit NOT NULL,
 	CONSTRAINT RelationPrimaryKey PRIMARY KEY (email),
-	CONSTRAINT RelationforeignKeyOne FOREIGN KEY (email, workedHours,isITconsultant) REFERENCES ClockifyUser (email,workedHours, isITconsultant),
-	CONSTRAINT RelationforeignKeyTwo FOREIGN KEY (email, salesMeetings) REFERENCES LimeGoUser (email, salesMeetings)
+	--CONSTRAINT RelationforeignKeyOne FOREIGN KEY (email, workedHours,isITconsultant) REFERENCES ClockifyUser (email,workedHours, isITconsultant),
+	--CONSTRAINT RelationforeignKeyTwo FOREIGN KEY (email, salesMeetings) REFERENCES LimeGoUser (email, salesMeetings)
 );

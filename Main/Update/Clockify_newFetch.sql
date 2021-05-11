@@ -1,8 +1,5 @@
 ﻿USE Konsulttrappan
 
-
-
-
 EXEC sp_configure 'show advanced options', 1
 RECONFIGURE
 GO
@@ -58,18 +55,20 @@ EXEC @ret = sp_OAMethod @token, 'setRequestHeader', NULL, 'X-Api-Key:', @authHea
 EXEC @ret = sp_OAMethod @token, 'setRequestHeader', NULL, 'Content-type', @contentType;
 EXEC @ret = sp_OAMethod @token, 'send'
 
+
 -- Grab the responseText property, and insert the JSON string into a table temporarily. This is very important, if you don't do this step you'll run into problems.
 INSERT into @json (Json_Table) EXEC sp_OAGetProperty @token, 'responseText'
 
 -- Select the JSON string from the Table we just inserted it into. You'll also be able to see the entire string with this statement.
-SET TEXTSIZE -1
 SELECT * FROM @json
 
 IF OBJECT_ID('tempUsers', 'U') IS NOT NULL
 DROP TABLE tempUsers
-SET TEXTSIZE -1
+
+SET TEXTSIZE -1;
+
 SELECT 
-	*
+	fullName, email, id
 into tempUsers FROM OPENJSON((SELECT * FROM @json))   -- USE OPENJSON to begin the parse.
 	WITH (
 		fullName NVARCHAR(50) '$.name',
@@ -115,7 +114,6 @@ EXEC @ret = sp_OAMethod @token, 'setRequestHeader', NULL, 'X-Api-Key:', @authHea
 EXEC @ret = sp_OAMethod @token, 'setRequestHeader', NULL, 'Content-type', @contentType;
 EXEC @ret = sp_OAMethod @token, 'send'
 
-
 INSERT into @json2 (Json_Table) EXEC sp_OAGetProperty @token, 'responseText'
 
 
@@ -143,8 +141,6 @@ END
 
 INSERT INTO NewClockifyUser(email, workedHours, clockID, isITconsultant) 
 SELECT email, COALESCE(duration,0), id, 0 FROM tempentries  RIGHT JOIN users ON userId = id
-
-
 
 MERGE ClockifyUser AS U USING NewClockifyUser AS N
 	ON (N.email = U.email)
