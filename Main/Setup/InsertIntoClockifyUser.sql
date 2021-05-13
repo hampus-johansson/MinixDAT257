@@ -9,9 +9,8 @@ EXEC sp_configure 'Ole Automation Procedures', 1
 RECONFIGURE 
 GO
 
-IF OBJECT_ID('dateFormating', 'U') IS NOT NULL
-DROP FUNCTION dateFormating
 
+DROP FUNCTION dateFormating
 GO
 
 
@@ -61,7 +60,30 @@ END
 GO
 
 
+DROP FUNCTION textFormating
+GO
 
+CREATE FUNCTION textFormating (@text NVARCHAR(MAX))
+
+RETURNS NVARCHAR(MAX)
+
+
+BEGIN 
+
+
+    --DECLARE @start NVARCHAR(MAX)
+
+
+    set @text = replace(@text,'"','')
+	set @text = replace(@text,'[','')
+	set @text = replace(@text,']','')
+
+
+
+   RETURN (@text)
+
+END
+GO
 
 -- Variable declaration related to the Object.
 DECLARE @token INT;
@@ -70,6 +92,7 @@ DECLARE @ret INT;
 -- Variable declaration related to the Request.
 DECLARE @url NVARCHAR(MAX);
 DECLARE @url2 NVARCHAR(MAX);
+DECLARE @url3 NVARCHAR(MAX);
 DECLARE @authHeader NVARCHAR(64);
 DECLARE @contentType NVARCHAR(64);
 DECLARE @apiKey NVARCHAR(32);
@@ -77,6 +100,7 @@ DECLARE @apiKey NVARCHAR(32);
 -- Variable declaration related to the JSON string.
 DECLARE @json AS TABLE(Json_Table NVARCHAR(MAX))
 DECLARE @json2 AS TABLE(Json_Table NVARCHAR(MAX))
+DECLARE @json3 AS TABLE(Json_Table NVARCHAR(MAX))
 -- Set Authentications
 SET @authHeader = 'OTU2ODIzYTItZjk1OC00ODUwLTgxNDQtNGFmN2QyMzg5Y2I2';
 SET @contentType = 'application/json';
@@ -118,11 +142,51 @@ into tempUsers FROM OPENJSON((SELECT * FROM @json))   -- USE OPENJSON to begin t
 IF OBJECT_ID('users', 'U') IS NOT NULL
 DROP TABLE users
 
-SELECT IDENTITY(int, 1,1) AS Ident, tempUsers.fullname, tempUsers.email, tempUsers.id
+
+-- ny tt
+SET @url3 = 'https://api.clockify.me/api/v1/workspaces/5efdd4e97ce08f0c087a3298/user-groups'
+
+
+EXEC @ret = sp_OAMethod @token, 'open', NULL, 'GET', @url3, 'false';
+EXEC @ret = sp_OAMethod @token, 'setRequestHeader', NULL, 'X-Api-Key:', @authHeader;
+EXEC @ret = sp_OAMethod @token, 'setRequestHeader', NULL, 'Content-type', @contentType;
+EXEC @ret = sp_OAMethod @token, 'send'
+
+
+INSERT into @json3 (Json_Table) EXEC sp_OAGetProperty @token, 'responseText'
+
+--SELECT * FROM @json3
+
+IF OBJECT_ID('tempGroups', 'U') IS NOT NULL
+DROP TABLE tempGroups
+
+SELECT 
+	*
+into tempGroups FROM OPENJSON((SELECT * FROM @json3))   -- USE OPENJSON to begin the parse.
+	WITH (
+		groupName NVARCHAR(MAX) '$.name',
+		id NVARCHAR(MAX) '$.userIds' AS JSON  
+	) 
+
+IF OBJECT_ID('tempGroups2', 'U') IS NOT NULL
+DROP TABLE tempGroups2
+
+SELECT groupName, dbo.textFormating(cs.value) as userId 
+into tempGroups2
+FROM tempGroups
+cross apply STRING_SPLIT (id, ',') cs
+where groupName = 'Consultant IT'
+
+
+
+SELECT IDENTITY(int, 1,1) AS Ident, tempUsers.fullname, tempUsers.email, tempUsers.id, count(tempGroups2.userId) as iTkonsult
 INTO users
-FROM tempUsers; 
+FROM tempUsers left join tempGroups2 on tempUsers.id = tempGroups2.userId
+group by fullname,email,id
+; 
 
 
+--nytt
 
 
 DECLARE @Counter INT , @MaxId INT, 
@@ -179,5 +243,8 @@ INSERT into tempEntries(userId, duration)
    SET @Counter  = @Counter  + 1
 END
 
+
+--delete from ClockifyUser
+
 INSERT INTO ClockifyUser(email, workedHours, clockID, isITconsultant) 
-SELECT email, COALESCE(duration,0), id, 0 FROM tempentries  RIGHT JOIN users ON userId = id
+SELECT email, COALESCE(duration,0), id, iTkonsult FROM tempentries  RIGHT JOIN users ON userId = id

@@ -1,4 +1,6 @@
-﻿USE Konsulttrappan
+
+USE Konsulttrappan
+
 
 EXEC sp_configure 'show advanced options', 1
 RECONFIGURE
@@ -28,6 +30,8 @@ DECLARE @ret INT;
 -- Variable declaration related to the Request.
 DECLARE @url NVARCHAR(MAX);
 DECLARE @url2 NVARCHAR(MAX);
+DECLARE @url3 NVARCHAR(MAX);
+
 DECLARE @authHeader NVARCHAR(64);
 DECLARE @contentType NVARCHAR(64);
 DECLARE @apiKey NVARCHAR(32);
@@ -35,6 +39,8 @@ DECLARE @apiKey NVARCHAR(32);
 -- Variable declaration related to the JSON string.
 DECLARE @json AS TABLE(Json_Table NVARCHAR(MAX))
 DECLARE @json2 AS TABLE(Json_Table NVARCHAR(MAX))
+DECLARE @json3 AS TABLE(Json_Table NVARCHAR(MAX))
+
 -- Set Authentications
 SET @authHeader = 'OTU2ODIzYTItZjk1OC00ODUwLTgxNDQtNGFmN2QyMzg5Y2I2';
 SET @contentType = 'application/json';
@@ -56,19 +62,20 @@ EXEC @ret = sp_OAMethod @token, 'setRequestHeader', NULL, 'Content-type', @conte
 EXEC @ret = sp_OAMethod @token, 'send'
 
 
+
 -- Grab the responseText property, and insert the JSON string into a table temporarily. This is very important, if you don't do this step you'll run into problems.
 INSERT into @json (Json_Table) EXEC sp_OAGetProperty @token, 'responseText'
 
 -- Select the JSON string from the Table we just inserted it into. You'll also be able to see the entire string with this statement.
+
 SELECT * FROM @json
 
 IF OBJECT_ID('tempUsers', 'U') IS NOT NULL
 DROP TABLE tempUsers
 
-SET TEXTSIZE -1;
-
 SELECT 
 	fullName, email, id
+
 into tempUsers FROM OPENJSON((SELECT * FROM @json))   -- USE OPENJSON to begin the parse.
 	WITH (
 		fullName NVARCHAR(50) '$.name',
@@ -79,9 +86,52 @@ into tempUsers FROM OPENJSON((SELECT * FROM @json))   -- USE OPENJSON to begin t
 IF OBJECT_ID('users', 'U') IS NOT NULL
 DROP TABLE users
 
-SELECT IDENTITY(int, 1,1) AS Ident, tempUsers.fullname, tempUsers.email, tempUsers.id
+
+-- ny tt
+SET @url3 = 'https://api.clockify.me/api/v1/workspaces/5efdd4e97ce08f0c087a3298/user-groups'
+
+
+EXEC @ret = sp_OAMethod @token, 'open', NULL, 'GET', @url3, 'false';
+EXEC @ret = sp_OAMethod @token, 'setRequestHeader', NULL, 'X-Api-Key:', @authHeader;
+EXEC @ret = sp_OAMethod @token, 'setRequestHeader', NULL, 'Content-type', @contentType;
+EXEC @ret = sp_OAMethod @token, 'send'
+
+
+INSERT into @json3 (Json_Table) EXEC sp_OAGetProperty @token, 'responseText'
+
+--SELECT * FROM @json3
+
+IF OBJECT_ID('tempGroups', 'U') IS NOT NULL
+DROP TABLE tempGroups
+
+SELECT 
+	*
+into tempGroups FROM OPENJSON((SELECT * FROM @json3))   -- USE OPENJSON to begin the parse.
+	WITH (
+		groupName NVARCHAR(MAX) '$.name',
+		id NVARCHAR(MAX) '$.userIds' AS JSON  
+	) 
+
+IF OBJECT_ID('tempGroups2', 'U') IS NOT NULL
+DROP TABLE tempGroups2
+
+SELECT groupName, dbo.textFormating(cs.value) as userId 
+into tempGroups2
+FROM tempGroups
+cross apply STRING_SPLIT (id, ',') cs
+where groupName = 'Consultant IT'
+
+
+
+SELECT IDENTITY(int, 1,1) AS Ident, tempUsers.fullname, tempUsers.email, tempUsers.id, count(tempGroups2.userId) as iTkonsult
 INTO users
-FROM tempUsers; 
+FROM tempUsers left join tempGroups2 on tempUsers.id = tempGroups2.userId
+group by fullname,email,id
+; 
+
+
+--nytt
+
 
 
 
@@ -114,6 +164,7 @@ EXEC @ret = sp_OAMethod @token, 'setRequestHeader', NULL, 'X-Api-Key:', @authHea
 EXEC @ret = sp_OAMethod @token, 'setRequestHeader', NULL, 'Content-type', @contentType;
 EXEC @ret = sp_OAMethod @token, 'send'
 
+
 INSERT into @json2 (Json_Table) EXEC sp_OAGetProperty @token, 'responseText'
 
 
@@ -140,7 +191,9 @@ INSERT into tempEntries(userId, duration)
 END
 
 INSERT INTO NewClockifyUser(email, workedHours, clockID, isITconsultant) 
-SELECT email, COALESCE(duration,0), id, 0 FROM tempentries  RIGHT JOIN users ON userId = id
+
+SELECT email, COALESCE(duration,0), id, iTkonsult FROM tempentries  RIGHT JOIN users ON userId = id
+
 
 MERGE ClockifyUser AS U USING NewClockifyUser AS N
 	ON (N.email = U.email)
