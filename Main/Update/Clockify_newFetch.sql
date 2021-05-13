@@ -9,58 +9,16 @@ EXEC sp_configure 'Ole Automation Procedures', 1
 RECONFIGURE 
 GO
 
-IF OBJECT_ID('dateFormating', 'U') IS NOT NULL
-DROP FUNCTION dateFormating
+DROP TABLE IF EXISTS NewClockifyUser
 
-GO
-
-
-CREATE FUNCTION dateFormating (@duration NVARCHAR(MAX), @billable NVARCHAR(MAX))
-
-RETURNS int
-
-BEGIN 
-
-IF @billable = 'true'
-BEGIN
-    DECLARE @start NVARCHAR(MAX)
-    DECLARE @end NVARCHAR(MAX)
-    DECLARE @result NVARCHAR(MAX)
-    DECLARE @test NVARCHAR(MAX)
-
-    set @test = (SELECT SUBSTRING(@duration,39,19))
-
-    if (CHARINDEX ('null',@duration)>0)
-    BEGIN
-	set @start = (SELECT SUBSTRING(@start,11,19))
-    set @duration = REPLACE(@duration,'null',@start) 
-    END
-
-    set @start = replace(@duration,'T',' ')
-    set @start = replace(@start,'Z','')
-    set @start = (SELECT SUBSTRING(@start,11,19))
-
-    set @end = replace(@duration,'T',' ')
-    set @end = replace(@end,'Z','')
-    set @end = (SELECT SUBSTRING(@end,39,19))
-
-
-    set @result = DATEDIFF(second,@start,@end)
-
-    --set @result =  just nu st�r det i sekunder
-
-    -- Enklaste �r att k�ra datediff timeinterval start och end, d�r man tar bort z och t
-END
-	ELSE
-	BEGIN
-	set @result = 0
-	END
-    RETURN (@result)
-
-END
-GO
-
-
+CREATE TABLE NewClockifyUser(
+	email varchar(100) NOT NULL,
+	workedHours REAL NOT NULL,
+	clockID TEXT NOT NULL,
+	isITconsultant bit NOT NULL,
+	CONSTRAINT NewClockifyPrimaryKey PRIMARY KEY (email),
+	CONSTRAINT NewUniqueUser UNIQUE (email,workedHours,isITconsultant), 
+);
 
 
 -- Variable declaration related to the Object.
@@ -97,6 +55,7 @@ EXEC @ret = sp_OAMethod @token, 'setRequestHeader', NULL, 'X-Api-Key:', @authHea
 EXEC @ret = sp_OAMethod @token, 'setRequestHeader', NULL, 'Content-type', @contentType;
 EXEC @ret = sp_OAMethod @token, 'send'
 
+
 -- Grab the responseText property, and insert the JSON string into a table temporarily. This is very important, if you don't do this step you'll run into problems.
 INSERT into @json (Json_Table) EXEC sp_OAGetProperty @token, 'responseText'
 
@@ -106,8 +65,10 @@ SELECT * FROM @json
 IF OBJECT_ID('tempUsers', 'U') IS NOT NULL
 DROP TABLE tempUsers
 
+SET TEXTSIZE -1;
+
 SELECT 
-	*
+	fullName, email, id
 into tempUsers FROM OPENJSON((SELECT * FROM @json))   -- USE OPENJSON to begin the parse.
 	WITH (
 		fullName NVARCHAR(50) '$.name',
@@ -153,7 +114,6 @@ EXEC @ret = sp_OAMethod @token, 'setRequestHeader', NULL, 'X-Api-Key:', @authHea
 EXEC @ret = sp_OAMethod @token, 'setRequestHeader', NULL, 'Content-type', @contentType;
 EXEC @ret = sp_OAMethod @token, 'send'
 
-
 INSERT into @json2 (Json_Table) EXEC sp_OAGetProperty @token, 'responseText'
 
 
@@ -179,5 +139,20 @@ INSERT into tempEntries(userId, duration)
    SET @Counter  = @Counter  + 1
 END
 
-INSERT INTO ClockifyUser(email, workedHours, clockID, isITconsultant) 
+INSERT INTO NewClockifyUser(email, workedHours, clockID, isITconsultant) 
 SELECT email, COALESCE(duration,0), id, 0 FROM tempentries  RIGHT JOIN users ON userId = id
+
+MERGE ClockifyUser AS U USING NewClockifyUser AS N
+	ON (N.email = U.email)
+	
+	WHEN MATCHED
+		THEN 
+		UPDATE SET U.workedHours = N.workedHours, U.isITconsultant = N.isITconsultant
+	
+	WHEN NOT MATCHED BY TARGET
+		THEN 
+		INSERT (email, workedHours, clockID, isITconsultant) 
+		VALUES (N.email, N.workedHours, N.clockID, N.isITconsultant);
+
+--DROP TABLE NewClockifyUser
+

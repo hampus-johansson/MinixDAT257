@@ -1,40 +1,40 @@
-USE Konsulttrappan
-
-/*
-  UNDERSTANDING THE Show Advanced Options
-  ------------------------------------------------------------------------------------------------------------------
-  Some configuration options, such as affinity mask and recovery interval, are designated as advanced options. By 
-  default, these options are not available for viewing and changing. To make them available, set the ShowAdvancedOptions 
-  configuration option to 1.
-*/
-
-
+-- ================================================
+-- Template generated from Template Explorer using:
+-- Create Procedure (New Menu).SQL
+--
+-- Use the Specify Values for Template Parameters 
+-- command (Ctrl-Shift-M) to fill in the parameter 
+-- values below.
+--
+-- This block of comments will not be included in
+-- the definition of the procedure.
+-- ================================================
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
 EXEC sp_configure 'show advanced options', 1
 RECONFIGURE
 GO
-
-/*
-  UNDERSTANDING THE OLE Automation Procedue
-  ------------------------------------------------------------------------------------------------------------------
-  Use the Ole Automation Procedures option to specify whether OLE Automation objects can be instantiated within 
-  Transact-SQL batches. This option can also be configured using the Policy-Based Management or the sp_configure stored 
-  procedure. The Ole Automation Procedures option can be set to the following values.
-  Value: 0
-  Definition: OLE Automation Procedures are disabled. Default for new instances of SQL Server.
-  Value: 1
-  Definition: OLE Automation Procedures are enabled.
-  
-  When OLE Automation Procedures are enabled, a call to sp_OACreate will start the OLE shared execution environment. The current 
-  value of the Ole Automation Procedures option can be viewed and changed by using the sp_configure system stored procedure.
-*/
 
 EXEC sp_configure 'Ole Automation Procedures', 1
 RECONFIGURE
 GO
 
+-- =============================================
+-- Author:		Name
+-- Create date: 
+-- Description:	
+-- =============================================
+CREATE PROCEDURE LimeGoRun 
+	-- Add the parameters for the stored procedure here
 
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
 
--- Variable declaration related to the Object.
 DECLARE @token INT;
 DECLARE @ret INT;
 DECLARE @positionFirst INT;
@@ -156,3 +156,6 @@ BEGIN
 
 	DROP TABLE NewLimeGoEvents
 	DROP TABLE NewLimeGoUser
+
+END
+GO
