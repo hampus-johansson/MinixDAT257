@@ -1,0 +1,11 @@
+Due to stress caused by the bachelor thesis (and holiday), we have postponed our sprint planning session to Monday morning and therefore I do not know yet what I will be working on in this sprint.
+The sprint will be much about bug fixes and maybe one new feature.
+
+My contribution towards the use of scrum has been by actively participate in sprint review, sprint planning and writing the team reflection.
+I make sure that all my questions regarding scrum is asked and discussed during the team meetings.
+
+My contribution toward the team's deliveries this week has been to set up scheduled jobs for the database to be updated continuously. 
+Also, I have been able to use my knowledge about Lime Go to continue working on an user story in the back log. 
+My programming pair for this week have all been working on different parts of the project before, 
+and it was really helpful to join together and know all the code to 100% when joining it when setting up the scheduled jobs. 
+This made all problems faced much faster fixed.
