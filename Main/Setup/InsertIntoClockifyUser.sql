@@ -13,6 +13,7 @@ GO
 DROP FUNCTION dateFormating
 GO
 
+
 CREATE FUNCTION dateFormating (@duration NVARCHAR(MAX), @billable NVARCHAR(MAX))
 
 RETURNS int

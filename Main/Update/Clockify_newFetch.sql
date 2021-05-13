@@ -1,6 +1,5 @@
+
 USE Konsulttrappan
-
-
 
 
 EXEC sp_configure 'show advanced options', 1
@@ -32,6 +31,7 @@ DECLARE @ret INT;
 DECLARE @url NVARCHAR(MAX);
 DECLARE @url2 NVARCHAR(MAX);
 DECLARE @url3 NVARCHAR(MAX);
+
 DECLARE @authHeader NVARCHAR(64);
 DECLARE @contentType NVARCHAR(64);
 DECLARE @apiKey NVARCHAR(32);
@@ -40,6 +40,7 @@ DECLARE @apiKey NVARCHAR(32);
 DECLARE @json AS TABLE(Json_Table NVARCHAR(MAX))
 DECLARE @json2 AS TABLE(Json_Table NVARCHAR(MAX))
 DECLARE @json3 AS TABLE(Json_Table NVARCHAR(MAX))
+
 -- Set Authentications
 SET @authHeader = 'OTU2ODIzYTItZjk1OC00ODUwLTgxNDQtNGFmN2QyMzg5Y2I2';
 SET @contentType = 'application/json';
@@ -60,18 +61,21 @@ EXEC @ret = sp_OAMethod @token, 'setRequestHeader', NULL, 'X-Api-Key:', @authHea
 EXEC @ret = sp_OAMethod @token, 'setRequestHeader', NULL, 'Content-type', @contentType;
 EXEC @ret = sp_OAMethod @token, 'send'
 
+
+
 -- Grab the responseText property, and insert the JSON string into a table temporarily. This is very important, if you don't do this step you'll run into problems.
 INSERT into @json (Json_Table) EXEC sp_OAGetProperty @token, 'responseText'
 
 -- Select the JSON string from the Table we just inserted it into. You'll also be able to see the entire string with this statement.
-SET TEXTSIZE -1
+
 SELECT * FROM @json
 
 IF OBJECT_ID('tempUsers', 'U') IS NOT NULL
 DROP TABLE tempUsers
-SET TEXTSIZE -1
+
 SELECT 
-	*
+	fullName, email, id
+
 into tempUsers FROM OPENJSON((SELECT * FROM @json))   -- USE OPENJSON to begin the parse.
 	WITH (
 		fullName NVARCHAR(50) '$.name',
@@ -81,6 +85,7 @@ into tempUsers FROM OPENJSON((SELECT * FROM @json))   -- USE OPENJSON to begin t
 
 IF OBJECT_ID('users', 'U') IS NOT NULL
 DROP TABLE users
+
 
 -- ny tt
 SET @url3 = 'https://api.clockify.me/api/v1/workspaces/5efdd4e97ce08f0c087a3298/user-groups'
@@ -126,6 +131,7 @@ group by fullname,email,id
 
 
 --nytt
+
 
 
 
@@ -185,8 +191,8 @@ INSERT into tempEntries(userId, duration)
 END
 
 INSERT INTO NewClockifyUser(email, workedHours, clockID, isITconsultant) 
-SELECT email, COALESCE(duration,0), id, iTkonsult FROM tempentries  RIGHT JOIN users ON userId = id
 
+SELECT email, COALESCE(duration,0), id, iTkonsult FROM tempentries  RIGHT JOIN users ON userId = id
 
 
 MERGE ClockifyUser AS U USING NewClockifyUser AS N
@@ -202,3 +208,4 @@ MERGE ClockifyUser AS U USING NewClockifyUser AS N
 		VALUES (N.email, N.workedHours, N.clockID, N.isITconsultant);
 
 --DROP TABLE NewClockifyUser
+

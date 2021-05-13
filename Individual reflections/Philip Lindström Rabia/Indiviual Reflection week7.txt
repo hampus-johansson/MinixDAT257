@@ -1,0 +1,14 @@
+
+
+- what do I want to learn or understand better?
+Denna vecka har jag som user story att göra klart sista delen i clockify. Förhoppningsvis behövs det ingen ny förståelse kring t-sql och clockify för att göra detta. Annars är det aldrig dåligt att bli bättre på att jobba agilt. Denna vecka är jag även scrum master så jag vill lära mig hur man är det på ett bra sätt och vad det innebär mer på djupet
+
+- how can I help someone else, or the entire team, to learn something new?
+Vi måste lära oss att jobba mer agilt och kunna ge tydliga resultat varje vecka. Detta är något vi får jobba med tillsammans i grupp och diskutera.
+
+- what is my contribution towards the team’s use of Scrum?
+Jag har varit delaktig i planerandet av sprinten, reviewen för förra veckan och gjort de userstories som jag skulle göra. Denna vecka är det att få fram vilka konsulter som är it konsulter från clockify.
+
+- what is my contribution towards the team’s deliveries?
+Som de andra veckorna har jag varit med i alla teamreflections och sprint planning samt mötet med våran externa intressent. Utöver det har jag även varit med o gjort klart en userstory.
+	
