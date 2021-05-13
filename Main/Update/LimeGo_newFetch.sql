@@ -52,7 +52,7 @@ DECLARE @json AS TABLE(Json_Table NVARCHAR(MAX))
 
 -- Set the API Key
 --använd
-SET @apiKey = 'fd8b0d17-e940-4d0c-bae9-34f8ee6bb74f';
+SET @apiKey = 'f4b1a021-d47c-438c-a153-00d29ce08d75';
 
 --måste = true för att inte stega igenom alla sidor
 DECLARE @peek NVARCHAR(64) = 'false';
