@@ -1,0 +1,14 @@
+
+
+- what do I want to learn or understand better?
+Eftersom vi inprincip är klara med mvp så kommer mycket fokus vara på final reflection och presentationen. För final reflectionen kommer vi gå igenom alla punkter från A till B och därav kan det vara bra att verkligen ha denna metodik bemästrad.
+
+- how can I help someone else, or the entire team, to learn something new?
+Fortsätta hålla en öppen dialog i gruppen där vi kan diskutera saker som man inte förstår eller vill lära sig mer om
+
+- what is my contribution towards the team’s use of Scrum?
+Jag har varit delaktig i planerandet av sprinten och reviewen för förra veckan och gjort de userstories som jag skulle göra. Jag var även scrum master denna vecka men med tanke på att vi precis har typ lyckats med en bra mall över hur vi gör sprint reviews och planering samt userstories så var det inte mycket jag ville ändra.
+
+- what is my contribution towards the team’s deliveries?
+Som de andra veckorna har jag varit med i alla teamreflections och sprint planning samt mötet med våran externa intressent. Utöver det har jag även varit med o gjort klart en userstory med Oskar.
+	
