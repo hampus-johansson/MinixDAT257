@@ -121,7 +121,7 @@ SELECT
  email,
  COUNT(*) AS meetings
 FROM LimeGoEvents
-WHERE eventType = 'MeetingBooked'
+WHERE eventType = 'MeetingBooked' OR eventType = 'MeetingReported'
 GROUP BY email
 
 
