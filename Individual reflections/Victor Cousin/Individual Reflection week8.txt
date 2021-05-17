@@ -1,0 +1,11 @@
+﻿What do I want to learn or understand better?
+Denna sprint vill jag bli bättre på att reflektera, då det nästa vecka kommer att fokuseras en del på att skriva final team reflection.
+
+How can I help someone else, or the entire team, to learn something new?
+Genom att fortsätta arbeta så som vi har gjort, hålla diskussioner kring vårt arbetssätt och reflektioner.
+
+What is my contribution towards the team’s use of Scrum?
+Genom reflektioner och diskussioner kring sprint plannings.
+
+What is my contribution towards the team’s deliveries? 
+Jag, Amanda och Linda har denna vecka fixat en bugg från förra veckan, gjort det möjligt att updatera datan från de båda API:erna och skapat scheduled jobs som automatiskt uppdaterar databasen för att sedan visas i Power Bi. Detta har gått väldigt bra, även ifall vi stötte på lite problem vilket gjorde att User storien tog längre tid än estimerat. 
