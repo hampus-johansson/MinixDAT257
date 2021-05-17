@@ -1,0 +1,18 @@
+Individual Reflection Week 8  – Oscar Wallin
+
+•	what do I want to learn or understand better?
+
+Since our MVP is now properly done and what remains is additional work and features as well as getting the final reports and presentations ready, that is what I would like to learn and focus on this week.
+
+•	how can I help someone else, or the entire team, to learn something new?
+
+Considering the workload this week will probably be lower compared to other weeks, there’s not much room when it comes to learning and helping the team learn something, since what we’re doing is basically reviewing and going through our projects entire work. Because of this, the general rule of properly communicating and explaining the various choices made throughout the week would stand to help out the members in the team as usual.
+
+•	what is my contribution towards the team’s use of Scrum?
+
+The scrum framework has been working along just like our sprints and by this point we are quite familiar and used to the use of it. Considering this, simply continuing with what we’re doing and properly planning and reviewing our last sprint will continue on with contributing towards the use of scrum.
+
+•	what is my contribution towards the team’s deliveries?
+
+As usual, everyone in the group was present during our discussion about our Team Reflection deliverable, when changing up, adding and correcting our Scrum board in Git. This involves planning poker, creating user stories and evaluating our various KPI’s. 
+.
