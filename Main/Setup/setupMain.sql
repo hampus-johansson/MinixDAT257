@@ -22,12 +22,10 @@
 
 /*
 Skapa Stored Procedures i SQL Server Management Studio:
-1. Konsulttrappan -> Programmability -> Stored Procedures
-2. Högerklicka och välj NEW -> Stored Procedure
-3. Ersätt allt i fönstret som öppnas med kod från MinixDAT257\Setup\storedProcedure_setupClockify.sql
-4. Upprepa och skapa en ny procedure för
-	MinixDAT257\Setup\storedProcedure_setupLime.sql
-	MinixDAT257\Setup\storedProcedure_setupRelation.sql
+1. Kör filerna nedan
+--:r C:\Users\phili\OneDrive\Dokument\GitHub\MinixDAT257\Setup\storedProcedure_setupClockify.sql
+--:r C:\Users\phili\OneDrive\Dokument\GitHub\MinixDAT257\Setup\storedProcedure_setupLime.sql
+--:r C:\Users\phili\OneDrive\Dokument\GitHub\MinixDAT257\Setup\storedProcedure_setupRelation.sql
 
 Skapa jobb:
 5. Högerklicka på SQL Server Agent i Object Explorer och välj START
@@ -52,6 +50,6 @@ Skapa jobb:
 Schemalägg jobbet:
 14. Högerklicka på det skapade jobbet ovan -> Properties
 15. Välj Schedules -> New 
-16. Ställ in önskad frekvens på uppdateringen
+16. Ställ in önskad frekvens på uppdateringen (exempelvis 1 gång var timme)
 */
 
