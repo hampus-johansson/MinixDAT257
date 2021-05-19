@@ -136,7 +136,7 @@ BEGIN
 	email,
 	COUNT(*) AS meetings
 	FROM NewLimeGoEvents
-	WHERE eventType = 'MeetingBooked'
+	WHERE eventType = 'MeetingBooked' OR eventType = 'MeetingReported'
 	GROUP BY email
 
 	INSERT INTO NewLimeGoUser VALUES ('test', 1)
