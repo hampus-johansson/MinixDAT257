@@ -9,7 +9,7 @@ EXEC sp_configure 'Ole Automation Procedures', 1
 RECONFIGURE 
 GO
 
-
+--IF OBJECT_ID('dateFormating', 'U') IS NOT NULL
 DROP FUNCTION dateFormating
 GO
 
@@ -59,9 +59,11 @@ END
 END
 GO
 
-
+--IF OBJECT_ID('textFormating', 'U') IS NOT NULL
 DROP FUNCTION textFormating
+
 GO
+
 
 CREATE FUNCTION textFormating (@text NVARCHAR(MAX))
 
@@ -244,7 +246,7 @@ INSERT into tempEntries(userId, duration)
 END
 
 
---delete from ClockifyUser
+Delete from ClockifyUser
 
 INSERT INTO ClockifyUser(email, workedHours, clockID, isITconsultant) 
 SELECT email, COALESCE(duration,0), id, iTkonsult FROM tempentries  RIGHT JOIN users ON userId = id
