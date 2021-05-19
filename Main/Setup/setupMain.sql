@@ -10,7 +10,7 @@
 
 -- 2
 --Insert into API(pname,APIkey) Values ('LimeGo', 'fd8b0d17-e940-4d0c-bae9-34f8ee6bb74f')
---Insert into API(pname,APIkey) Values ('Clockify', 'YjUxZGZiMWUtMmY2My00NTNhLTk4ODMtYWIzYmI3M2ZjNDRh')
+--Insert into API(pname,APIkey) Values ('Clockify', 'OTU2ODIzYTItZjk1OC00ODUwLTgxNDQtNGFmN2QyMzg5Y2I2')  
 
 -- 3
 
@@ -18,7 +18,7 @@
 
 --:r C:\Users\phili\OneDrive\Dokument\GitHub\MinixDAT257\Main\Setup\InsertIntoClockifyUser.sql
 --:r C:\Users\phili\OneDrive\Dokument\GitHub\MinixDAT257\Main\Setup\InsertIntoLimeGoUser.sql
---:r C:\Users\phili\OneDrive\Dokument\GitHub\MinixDAT257\Main\Setup\inserttorelations.sql
+--:r C:\Users\phili\OneDrive\Dokument\GitHub\MinixDAT257\Main\Setup\InsertIntorelations.sql
 
 /*
 Skapa Stored Procedures i SQL Server Management Studio:
