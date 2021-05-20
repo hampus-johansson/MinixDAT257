@@ -9,7 +9,7 @@ EXEC sp_configure 'Ole Automation Procedures', 1
 RECONFIGURE 
 GO
 
---IF OBJECT_ID('dateFormating', 'U') IS NOT NULL
+IF OBJECT_ID('dateFormating', 'U') IS NOT NULL
 DROP FUNCTION dateFormating
 GO
 
@@ -59,7 +59,7 @@ END
 END
 GO
 
---IF OBJECT_ID('textFormating', 'U') IS NOT NULL
+IF OBJECT_ID('textFormating', 'U') IS NOT NULL
 DROP FUNCTION textFormating
 
 GO
