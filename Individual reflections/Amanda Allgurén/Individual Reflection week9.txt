@@ -1,0 +1,6 @@
+Since we completed out MVP last sprint, this sprint has only been focused on bug fixing, presentation and final report.
+
+My contribution towards the use of scrum has been by actively participate in sprint review, sprint planning and writing the team reflection.
+I have and will continue to focus on the final report writing rather than the presentation prep.
+
+My contribution toward the team's deliveries this week has been to add a small feature for the Lime Go fetching and corrected a bug. 
