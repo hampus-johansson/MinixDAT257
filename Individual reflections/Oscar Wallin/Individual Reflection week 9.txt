@@ -1,0 +1,17 @@
+Individual Reflection Week 9  – Oscar Wallin
+
+•	what do I want to learn or understand better?
+
+At this point of the project, the learning aspect of the course is close to finished, at least when looking at the state of our group. We are mostly doing minor bug fixing and making sure that when we deliver our product to our stakeholder, the delivery is smooth and can easily be setup in their workspace.
+
+•	how can I help someone else, or the entire team, to learn something new?
+
+Since my main focus this week was some small tasks as well as writing the final report, it simply boils down to making sure the group is following the A,B A?B structure and that every point in the report is mentioned, as well as helping out if people get stuck.
+
+•	what is my contribution towards the team’s use of Scrum?
+
+As always, properly planning the minor work and tasks we are doing and doing our reviews, meetings. 
+
+•	what is my contribution towards the team’s deliveries?
+
+Same deal here, being present during our reviews/planning, writing the team reflection as well as final report, and also correctly finishing up our repository to make it easier to navigate and so that both the stakeholder and course teacher know which part is where.
