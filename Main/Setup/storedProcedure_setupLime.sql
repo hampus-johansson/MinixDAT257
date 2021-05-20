@@ -9,6 +9,9 @@
 -- This block of comments will not be included in
 -- the definition of the procedure.
 -- ================================================
+
+
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -26,6 +29,7 @@ GO
 -- Create date: 
 -- Description:	
 -- =============================================
+
 CREATE PROCEDURE LimeGoRun 
 	-- Add the parameters for the stored procedure here
 
@@ -52,7 +56,7 @@ DECLARE @json AS TABLE(Json_Table NVARCHAR(MAX))
 
 -- Set the API Key
 --använd
-SET @apiKey = '86d5828a-9814-4e35-8101-374d40964086';
+SET @apiKey = (select APIkey from API WHERE pname = 'LimeGo');
 
 --måste = true för att inte stega igenom alla sidor
 DECLARE @peek NVARCHAR(64) = 'false';

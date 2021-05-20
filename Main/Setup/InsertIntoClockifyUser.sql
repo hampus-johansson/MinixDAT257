@@ -9,8 +9,7 @@ EXEC sp_configure 'Ole Automation Procedures', 1
 RECONFIGURE 
 GO
 
-IF OBJECT_ID('dateFormating', 'U') IS NOT NULL
-DROP FUNCTION dateFormating
+DROP FUNCTION IF EXISTS dbo.dateFormating;
 GO
 
 
@@ -59,11 +58,12 @@ END
 END
 GO
 
-IF OBJECT_ID('textFormating', 'U') IS NOT NULL
-DROP FUNCTION textFormating
+--IF OBJECT_ID('textFormating', 'U') IS NOT NULL
+--DROP FUNCTION textFormating
+--GO
 
+DROP FUNCTION IF EXISTS dbo.textFormating;
 GO
-
 
 CREATE FUNCTION textFormating (@text NVARCHAR(MAX))
 

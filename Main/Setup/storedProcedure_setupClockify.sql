@@ -9,6 +9,7 @@
 -- This block of comments will not be included in
 -- the definition of the procedure.
 -- ================================================
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -73,11 +74,8 @@ DECLARE @json2 AS TABLE(Json_Table NVARCHAR(MAX))
 DECLARE @json3 AS TABLE(Json_Table NVARCHAR(MAX))
 
 -- Set Authentications
-SET @authHeader = 'OTU2ODIzYTItZjk1OC00ODUwLTgxNDQtNGFmN2QyMzg5Y2I2';
+SET @authHeader = (select APIkey from API WHERE pname = 'Clockify');
 SET @contentType = 'application/json';
-
--- Set the API Key, I'm just grabbing it from another table in my Database.
-SET @apiKey = 'YjUxZGZiMWUtMmY2My00NTNhLTk4ODMtYWIzYmI3M2ZjNDRh'
 
 -- Define the URL
 SET @url = 'https://api.clockify.me/api/v1/workspaces/5efdd4e97ce08f0c087a3298/users/?page-size=1000'

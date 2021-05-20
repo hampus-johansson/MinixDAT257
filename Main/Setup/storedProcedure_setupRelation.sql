@@ -9,6 +9,8 @@
 -- This block of comments will not be included in
 -- the definition of the procedure.
 -- ================================================
+use Konsulttrappan
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON

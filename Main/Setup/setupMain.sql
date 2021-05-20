@@ -1,7 +1,6 @@
 -- Måste aktivera SQLCMD Mode i Query-fliken
 --CREATE DATABASE Konsulttrappan
 
-
 -- 1
 
 -- Kör först denna
@@ -23,9 +22,10 @@
 /*
 Skapa Stored Procedures i SQL Server Management Studio:
 1. Kör filerna nedan
---:r C:\Users\phili\OneDrive\Dokument\GitHub\MinixDAT257\Setup\storedProcedure_setupClockify.sql
---:r C:\Users\phili\OneDrive\Dokument\GitHub\MinixDAT257\Setup\storedProcedure_setupLime.sql
---:r C:\Users\phili\OneDrive\Dokument\GitHub\MinixDAT257\Setup\storedProcedure_setupRelation.sql
+--:r C:\Users\phili\OneDrive\Dokument\GitHub\MinixDAT257\Main\Setup\storedProcedure_setupClockify.sql
+--:r C:\Users\phili\OneDrive\Dokument\GitHub\MinixDAT257\Main\Setup\storedProcedure_setupLime.sql
+--:r C:\Users\phili\OneDrive\Dokument\GitHub\MinixDAT257\Main\Setup\storedProcedure_setupRelation.sql
+
 
 Skapa jobb:
 5. Högerklicka på SQL Server Agent i Object Explorer och välj START
