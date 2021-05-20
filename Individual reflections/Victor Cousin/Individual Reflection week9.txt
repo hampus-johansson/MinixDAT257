@@ -1,0 +1,11 @@
+﻿What do I want to learn or understand better?
+Denna sprint vill jag bli bättre på att reflektera kring A, B och A -> B så som vi ska göra i final reflection.
+
+How can I help someone else, or the entire team, to learn something new?
+Genom att hjälpas åt med skrivandet och genom att diskutera besluten vi tar i dokumentet.
+
+What is my contribution towards the team’s use of Scrum?
+Denna vecka har jag varit scrum master, och har haft största ansvaret för att vår sprint board ska fungera och genomföras. 
+
+What is my contribution towards the team’s deliveries? 
+Vi har denna vecka fokuserat på att finslipa vår produkt och fixa buggar och extra features.
