@@ -1,0 +1,17 @@
+
+
+- what do I want to learn or understand better?
+Framöver kommer jag endast jobba med final reflection texten som inprincip nästan är klar. Här hade det varit bra om man har koll på hur man reflekterar kring A, B och A -> B
+
+- how can I help someone else, or the entire team, to learn something new?
+Fortsätta hålla en öppen dialog i gruppen där vi kan diskutera saker som man inte förstår eller vill lära sig mer om. Nu kommer vi även skriva mycket tillsammans och diskutera projektet i helhet.
+
+- what is my contribution towards the team’s use of Scrum?
+Jag har varit delaktig i planerandet av sprinten och reviewen för förra veckan och gjort de userstories som jag skulle göra. 
+
+- what is my contribution towards the team’s deliveries?
+Som de andra veckorna har jag varit med i alla teamreflections och sprint planning samt mötet med våran externa intressent. Jag löste även en bugg
+	
+
+
+
