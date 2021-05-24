@@ -5,4 +5,6 @@ Det är inte möjligt att testa projektet utan två API Keys (Lime-Go samt Clock
 
 Databas innehåller tables samt tidigt ER-schema från första veckorna av kursen.
 
+Individual Reflections innehåller alla individuella reflektioner för samtliga i projektgruppen.
+
 Main innehåller alla olika setups, insert för båda API:s, README för att sätta upp databasen samt sätta frekvens på Jobs (uppdateringar)
