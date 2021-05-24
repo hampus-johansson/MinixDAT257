@@ -1,7 +1,7 @@
 Länk till gruppens dokument. Innehåller social contract, userstories och teamreflections.
 https://drive.google.com/drive/folders/1aWjF7PkuVRpmcA6gGa8WgGebm0L4dQ45?usp=sharing
 
-Det är inte möjligt att testa projektet utan två API Keys (Lime-Go samt Clockify).
+Det är inte möjligt att testa projektet utan två API Keys (Lime-Go samt Clockify). De API-keys vi har använt för CTK's workspace är borttagna på grund av att vårt repo är offentligt.
 
 ERdiagram innehåller tidigt ER-schema från första veckorna av kursen.
 
