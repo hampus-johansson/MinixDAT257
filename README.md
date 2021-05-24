@@ -3,7 +3,7 @@ https://drive.google.com/drive/folders/1aWjF7PkuVRpmcA6gGa8WgGebm0L4dQ45?usp=sha
 
 Det är inte möjligt att testa projektet utan två API Keys (Lime-Go samt Clockify).
 
-Databas innehåller tables samt tidigt ER-schema från första veckorna av kursen.
+ERdiagram innehåller tidigt ER-schema från första veckorna av kursen.
 
 Individual Reflections innehåller alla individuella reflektioner för samtliga i projektgruppen.
 
