@@ -1,0 +1,36 @@
+﻿Individuell reflection.  Week 9   
+What do I want to learn or understand better?    
+Under denna sprinten blev vi klara med arbetet och jag känner att jag lärt mig enormt mycket under detta projekt, med allt ifrån att arbeta emdd scrum, att arbeta mer med databaser, men det viktigaste är nog hur man strukturerar och arbetar med it i ett projekt, just med tanke på github och all strukturering. 
+
+
+How can I help someone else, or the entire team, to learn something new?  
+ - Vara delaktig i alla diskussioner och komma med mina idéer. Dela med mig av den kunskapen jag har i våra möten.    
+- Även denna spriniten har vi parprogrammerat och löst mycket saker tillsammans, det har fungerat lika bra som alltid. 
+
+
+
+
+What is my contribution towards the team’s use of Scrum?   
+- Jag har aktivt tittat på föreläsningarna, läste noga igenom alla slides samt googlar när det är något jag inte förstår. JAg har även kollar på många youtube vidoer när vi varit osäkra på något.    
+- Jag har även läst klart boken om Scrum som fanns på kurshemsidan och genom att läsa den får man en tydligare bild av vad scrum faktiskt innebär och varför det är en bra arbetsprocess. Vi jobbar idag reda med planning poker, diskutterar utförligt poängsättningar och reflekterar mycket över hur tidigare sprint gick, för att kunna presetera bättre på nästa.
+I början av arbetet var det lite kämpigt med att föstå meningen med scrum,men nu efter några veckor så kan man verkligen förstå vad scrum bidrar med.       
+
+
+
+
+What is my contribution towards the team’s deliveries?   
+
+
+
+
+Denna sprinten blev vi somsagt klara med alla våra user stories, vilket kändes så bra. Kunden är nöjd och vi löste någon extra feature som gjorde proddukten ännu bättre. Vi har även börjar arbeta på rapporten samt förberett en presentation. 
+
+
+ -        Jag har även varit delaktig i alla diskusioner kring sprint planning och sprint retrospective. Vi har jobbat mycket med att user storiesn ska vara vertikala, men detta är något som är mycket lättare nu när frontend och backend faktiskt äntligen är ihopkopplade. Arbetet känms och har fungerat bra, vi har grundfunktionaliteten men en del kvar att fixa innan vi gjort våran stakeholder helt nöjd.   
+
+
+
+
+
+
+Learning Objective: Jag vill försöka lära mig alla viktiga koncept i kursen genom att aktivit lyssna på föreläsningarna. Jag vill också arbeta bra tillsammans med gruppen och skapa en bra gruppgemenskap där alla känner att de bidrar, detta genom en öppen diskussion och bra strukturerat arbetssätt. Jag vill också lära mig mer om scrum, dels genom föreläsningar, egna erfarenheter samt läsa på ytterligare om det behövs. Jag vill också lära mig mer om programmeringsspråket vi jobbar i nu, samt hur hela systemet med databaser och servrar fungerar, alltså hur man kan koppla upp sig mot någon annans server osv.
