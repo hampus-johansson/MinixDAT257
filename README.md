@@ -10,3 +10,6 @@ Individual Reflections innehåller alla individuella reflektioner för samtliga 
 Main innehåller alla olika setups, insert för båda API:s, README för att sätta upp databasen samt sätta frekvens på Jobs (uppdateringar)
 
 SCRUM-boarden gjordes i vårt repository, kan hittas genom Projects -> Software
+
+Philip är Glaskula
+Glaskula är Philip
