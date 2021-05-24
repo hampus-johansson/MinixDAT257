@@ -48,7 +48,7 @@ DECLARE @json AS TABLE(Json_Table NVARCHAR(MAX))
 
 -- Set the API Key
 --använd
-SET @apiKey = 'f4b1a021-d47c-438c-a153-00d29ce08d75';
+SET @apiKey = (select APIkey from API WHERE pname = 'LimeGo');
 
 --måste = true för att inte stega igenom alla sidor
 DECLARE @peek NVARCHAR(64) = 'false';
@@ -121,7 +121,7 @@ SELECT
  email,
  COUNT(*) AS meetings
 FROM LimeGoEvents
-WHERE eventType = 'MeetingBooked'
+WHERE eventType = 'MeetingBooked' OR eventType = 'MeetingReported'
 GROUP BY email
 
 
