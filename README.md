@@ -1,4 +1,7 @@
-Länk till gruppens dokument. Innehåller final report, social contract, user stories, team reflections och mötesanteckningar.
+final report: https://docs.google.com/document/d/1pNtslaqwP4D4LxQrXWz-vzst3Ce5Au5qN3BPvRQeKwM/edit?usp=sharing
+
+Länk till gruppens dokument. 
+Innehåller final report, social contract, user stories, team reflections och mötesanteckningar.
 https://drive.google.com/drive/folders/1aWjF7PkuVRpmcA6gGa8WgGebm0L4dQ45?usp=sharing
 
 Det är inte möjligt att testa projektet utan två API Keys (för Lime-Go samt Clockify). De API-keys vi har använt för CTK's workspace är borttagna på grund av att vårt repo nu är offentligt.
